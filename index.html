@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piyush & Kiran's Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #b392ac;
+            --secondary-color: #735d78;
+            --accent-color: #e8c547;
+            --bg-color: #2b1b2c;
+            --text-color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 2;
+            transition: all 1s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .wedding-date {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+
+        .envelope {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            background-color: var(--secondary-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .envelope::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-top: 90px solid transparent;
+            border-right: 140px solid var(--primary-color);
+            border-bottom: 90px solid var(--primary-color);
+            border-bottom-right-radius: 10px;
+            z-index: 3;
+        }
+
+        .envelope::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-top: 90px solid transparent;
+            border-left: 140px solid var(--primary-color);
+            border-bottom: 90px solid var(--primary-color);
+            border-bottom-left-radius: 10px;
+            z-index: 3;
+        }
+
+        .front-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 100px solid var(--secondary-color);
+            transform-origin: top;
+            transition: transform 0.5s ease 0.5s, z-index 0.2s ease 0.5s;
+            z-index: 4;
+        }
+
+        .letter {
+            position: absolute;
+            bottom: 5px;
+            left: 10px;
+            width: 260px;
+            height: 160px;
+            background-color: #fff;
+            border-radius: 5px;
+            z-index: 2;
+            transition: transform 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .letter p {
+            color: #333;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .letter .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: var(--secondary-color);
+        }
+
+        .wax-seal {
+            position: absolute;
+            top: 80px;
+            left: 125px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            z-index: 5;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.5s ease 0.5s, opacity 0.3s ease 0.4s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #333;
+        }
+
+        .envelope-wrapper.open .front-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .envelope-wrapper.open .wax-seal {
+            transform: translate(-15px, -50px) scale(0);
+            opacity: 0;
+        }
+
+        .envelope-wrapper.open .letter {
+            transform: translateY(-80px);
+            z-index: 4;
+        }
+
+        .envelope-wrapper.open .envelope {
+            transform: translateY(40px);
+        }
+
+        .star {
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .click-hint {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            animation: pulse 1.5s infinite ease-in-out;
+            text-align: center;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.9; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Piyush & Kiran's Wedding</h1>
+        <div class="wedding-date">12 December 2026</div>
+
+        <div class="envelope-wrapper" onclick="openEnvelope(this)">
+            <div class="front-flap"></div>
+            <div class="wax-seal">❤</div>
+            <div class="letter">
+                <p>We invite you to share in our joy and celebrate our wedding festivities.</p>
+                <p class="signature">Piyush & Kiran</p>
+            </div>
+            <div class="envelope"></div>
+        </div>
+
+        <div class="click-hint">Click Envelope to Open</div>
+    </div>
+
+    <script>
+        for (let i = 0; i < 50; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(star);
+        }
+
+        function openEnvelope(element) {
+            if (!element.classList.contains('open')) {
+                element.classList.add('open');
+                
+                sessionStorage.setItem('playMusicOnLoad', 'true');
+                
+                setTimeout(() => {
+                    window.location.href = 'home.html' + window.location.search;
+                }, 1800);
+            }
+        }
+    </script>
+</body>
+</html>

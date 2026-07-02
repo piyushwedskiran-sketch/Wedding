@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>Piyush & Kiran's Wedding | Groom's Celebrations</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100vh;width:100vw;overflow:hidden}
+body{
+font-family:'Cormorant Garamond',serif;
+background:radial-gradient(circle at center,#0d1627 0%,#010307 100%);
+color:#fff;
+position:relative;
+text-align:center;
+}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:1}
+.mist{
+position:fixed;left:0;right:0;bottom:0;height:40vh;
+background:radial-gradient(ellipse at bottom,rgba(212,175,55,0.1),transparent 70%);
+filter:blur(60px);
+pointer-events:none;
+z-index:1;
+}
+
+/* Luxury Lantern Container Layer */
+#lanterns-layer {
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:2;
+overflow:hidden;
+}
+.lantern {
+position:absolute;
+font-size:32px;
+filter:drop-shadow(0 0 12px rgba(229,193,88,0.6));
+opacity:0.35;
+animation:floatUp 25s linear infinite;
+}
+@keyframes floatUp {
+0% { transform:translateY(105vh) translateX(0) scale(0.8); opacity:0; }
+10% { opacity:0.4; }
+90% { opacity:0.4; }
+100% { transform:translateY(-15vh) translateX(50px) scale(1.1); opacity:0; }
+}
+
+/* Background Blur Layer triggered when RSVP opens */
+body.modal-open .wrapper > *:not(.rsvp-section) {
+filter:blur(8px);
+transition:filter 0.4s ease;
+}
+.wrapper > * {
+transition:filter 0.4s ease;
+}
+
+.wrapper{
+position:relative;
+z-index:3;
+width:100%;
+height:100vh;
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+}
+
+.header{text-align:center;margin-top:5px;width:100%}
+.title{
+font-family:'Great Vibes',cursive;
+font-size:clamp(46px, 7.5vh, 72px);
+background:linear-gradient(90deg,#9a7432,#e5c158,#fff,#e5c158,#9a7432);
+background-size:300% auto;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:goldShimmer 8s linear infinite;
+text-shadow:0 0 25px rgba(229,193,88,0.25);
+margin-bottom:5px;
+}
+@keyframes goldShimmer{from{background-position:0%}to{background-position:300%}}
+
+.divider{color:#d4af37;letter-spacing:6px;font-size:14px;margin:5px 0;opacity:0.8}
+#guestName{font-size:clamp(24px, 4vh, 36px);color:#f3e5ab;font-weight:400;letter-spacing:1px;margin-top:10px}
+#guestMessage{font-size:clamp(16px, 2.4vh, 21px);color:#e0e0e0;opacity:0.9;max-width:600px;margin:15px auto 0;line-height:1.6}
+
+/* Elegant Dynamic Grid with Slightly Larger Cards */
+.timeline{
+margin:15px auto;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-content:center;
+gap:20px;
+width:100%;
+max-height:52vh;
+}
+
+/* Premium 3D Cards */
+.flip-card{
+perspective:1500px;
+width:215px;
+height:160px;
+opacity:0;
+animation:riseIn .6s forwards ease-out;
+}
+@keyframes riseIn{
+from{opacity:0;transform:translateY(25px)}
+to{opacity:1;transform:translateY(0)}
+}
+.flip-inner{
+position:relative;
+width:100%;
+height:100%;
+transition:transform 0.8s cubic-bezier(0.2,0.8,0.2,1);
+transform-style:preserve-3d;
+}
+.flip-card:hover .flip-inner{transform:rotateY(180deg)}
+
+.flip-front,.flip-back{
+position:absolute;
+inset:0;
+backface-visibility:hidden;
+border-radius:14px;
+background:linear-gradient(135deg,rgba(32,32,36,0.92),rgba(10,10,12,0.98));
+border:1px solid rgba(212,175,55,0.4);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:15px;
+text-align:center;
+box-shadow:0 18px 40px rgba(0,0,0,0.65), inset 0 0 20px rgba(212,175,55,0.06);
+}
+
+.card-decor{
+position:absolute;
+inset:6px;
+border:1px solid rgba(212,175,55,0.18);
+border-radius:10px;
+pointer-events:none;
+}
+.card-decor::before, .card-decor::after {
+content:'';
+position:absolute;
+width:12px;
+height:12px;
+border:1px solid #d4af37;
+pointer-events:none;
+}
+.card-decor::before { top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.card-decor::after { bottom:-1px; right:-1px; border-left:0; border-top:0; }
+
+.flip-back{transform:rotateY(180deg);border-color:rgba(212,175,55,0.55)}
+
+.icon{font-size:32px;margin-bottom:8px;filter:drop-shadow(0 0 8px rgba(229,193,88,0.45))}
+.flip-front h3{font-size:18px;color:#e5c158;letter-spacing:1px;font-weight:600;text-transform:uppercase}
+.flip-back p{font-size:14px;color:#ffffff;margin-bottom:4px;font-weight:400}
+.flip-back .venue{font-size:13px;color:#f3e5ab;opacity:0.85;margin-bottom:10px}
+
+.map-btn{
+display:inline-block;
+padding:6px 16px;
+border-radius:20px;
+text-decoration:none;
+background:linear-gradient(90deg,#9a7432,#e5c158);
+color:#000;
+font-size:12px;
+font-weight:700;
+letter-spacing:0.5px;
+transition:0.3s;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+.map-btn:hover{transform:scale(1.05);box-shadow:0 6px 15px rgba(229,193,88,0.25)}
+
+/* Centered Elegant Generic Landing Layout Elements */
+.generic-fallback-box {
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+margin:auto;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,0.02);
+border:1px solid rgba(212,175,55,0.1);
+backdrop-filter:blur(10px);
+max-width:550px;
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+.generic-ornament {
+font-size:28px;
+color:#e5c158;
+margin-bottom:15px;
+opacity:0.85;
+}
+
+.rsvp-section {
+width:100%;
+max-width:500px;
+margin-bottom:15px;
+text-align:center;
+position:relative;
+z-index:100;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.btn{
+padding:12px 40px;
+border:1px solid #d4af37;
+border-radius:30px;
+background:linear-gradient(135deg,rgba(35,35,40,0.95),rgba(15,15,20,0.95));
+color:#e5c158;
+font-size:17px;
+font-weight:600;
+letter-spacing:1px;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 8px 25px rgba(0,0,0,0.5), 0 0 10px rgba(212,175,55,0.1);
+}
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 30px rgba(212,175,55,0.3);
+background:rgba(212,175,55,0.1);
+}
+
+.rsvp-status-text {
+font-size:14px;
+color:#f3e5ab;
+margin-top:8px;
+font-style:italic;
+letter-spacing:0.5px;
+text-align:center;
+}
+
+/* Luxury RSVP Box with Dynamic Blur Overlay integration */
+.rsvp-box{
+position:fixed;
+bottom:80px;
+left:50%;
+transform:translateX(-50%);
+width:min(92%,450px);
+background:linear-gradient(180deg,rgba(20,20,25,0.96),rgba(8,8,12,0.99));
+backdrop-filter:blur(30px);
+-webkit-backdrop-filter:blur(30px);
+border:1px solid rgba(212,175,55,0.5);
+border-radius:24px;
+padding:24px;
+box-shadow:0 30px 70px rgba(0,0,0,0.95), inset 0 0 25px rgba(212,175,55,0.05);
+transition:opacity 0.4s ease, transform 0.4s ease;
+}
+.hidden{display:none!important}
+.fade-out { opacity:0; pointer-events:none; transform:translateX(-50%) translateY(15px); }
+
+/* Luxury Form Close Button */
+.close-btn {
+position:absolute;
+top:14px;
+right:16px;
+background:transparent;
+border:none;
+color:#e5c158;
+font-size:20px;
+cursor:pointer;
+transition:transform 0.2s ease, color 0.2s ease;
+padding:4px;
+line-height:1;
+}
+.close-btn:hover {
+transform:scale(1.15);
+color:#fff;
+}
+
+.form-group {
+text-align:center;
+margin-bottom:12px;
+transition:opacity 0.3s ease, max-height 0.3s ease;
+}
+.form-group label {
+display:block;
+font-size:14px;
+color:#e5c158;
+margin-bottom:6px;
+font-weight:500;
+text-align:center;
+}
+
+input,select,textarea{
+width:100%;
+padding:10px 12px;
+border:1px solid rgba(212,175,55,0.25);
+border-radius:10px;
+background:rgba(0,0,0,0.5);
+color:#fff;
+font-size:14px;
+font-family:'Cormorant Garamond',serif;
+text-align:center;
+text-align-last:center;
+}
+input:focus,select:focus,textarea:focus {
+outline:none;
+border-color:rgba(212,175,55,0.7);
+}
+
+/* Luxury Meal Selection Toggle */
+.meal-toggle-container {
+display:flex;
+gap:12px;
+background:rgba(0,0,0,0.4);
+padding:4px;
+border:1px solid rgba(212,175,55,0.25);
+border-radius:12px;
+width:100%;
+}
+.meal-option {
+flex:1;
+text-align:center;
+padding:8px;
+font-size:14px;
+cursor:pointer;
+border-radius:8px;
+transition:0.3s;
+color:#aaa;
+font-weight:500;
+}
+.meal-option.active {
+background:linear-gradient(90deg,#9a7432,#e5c158);
+color:#000;
+font-weight:600;
+box-shadow:0 4px 12px rgba(229,193,88,0.3);
+}
+
+.submit{
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:linear-gradient(90deg,#9a7432,#e5c158,#9a7432);
+background-size:200% auto;
+color:#000;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+margin-top:6px;
+transition:0.4s;
+text-align:center;
+}
+.submit:hover{
+background-position:right center;
+box-shadow:0 8px 20px rgba(212,175,55,0.35);
+}
+
+#success {
+position:fixed;
+bottom:100px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(12,12,14,0.95);
+border:1px solid #e5c158;
+padding:16px 36px;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(0,0,0,0.6);
+z-index:200;
+transition:opacity 0.5s ease;
+}
+.success{text-align:center;font-size:18px;color:#e5c158;font-weight:600}
+
+.back-home-link {
+padding:6px 22px;
+border:1px solid rgba(212,175,55,0.25);
+border-radius:20px;
+text-decoration:none;
+color:#ffffff;
+opacity:0.4;
+font-size:13px;
+transition:0.3s;
+margin-bottom:5px;
+display:inline-block;
+}
+.back-home-link:hover { opacity:1; color:#e5c158; border-color:rgba(212,175,55,0.45) }
+
+@media(max-width:768px){
+.wrapper{padding:15px}
+.timeline{gap:12px;max-height:55vh}
+.flip-card{width:160px;height:128px}
+.icon{font-size:24px;margin-bottom:4px}
+.flip-front h3{font-size:14px}
+.flip-back p{font-size:12px}
+.flip-back .venue{font-size:11px;margin-bottom:4px}
+.map-btn{padding:4px 12px;font-size:10px}
+.generic-fallback-box { padding:20px; max-width:90% }
+.rsvp-box{bottom:70px;padding:16px 20px 20px;border-radius:20px}
+.form-group{margin-bottom:6px}
+input,select,textarea,.meal-option{padding:7px;font-size:13px}
+.submit{padding:10px;font-size:14px}
+.close-btn{top:10px;right:12px;font-size:18px}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div id="lanterns-layer"></div>
+<div class="mist"></div>
+
+<div class="wrapper">
+<div class="header">
+<h1 class="title">Piyush & Kiran's Wedding</h1>
+<div class="divider">✦  &nbsp;  ✦  &nbsp;  ✦</div>
+</div>
+
+<!-- Dynamic Container Layer -->
+<div id="mainContent" class="wrapper-dynamic-layer" style="width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
+  <div id="timeline" class="timeline"></div>
+  
+  <!-- Centered fallback box shown if link is generic/missing -->
+  <div id="fallbackBox" class="generic-fallback-box hidden">
+    <div class="generic-ornament">👑</div>
+    <h2 id="guestName">Invitation Link Required</h2>
+    <p id="guestMessage">Please contact the family to receive your personalized invitation link to view schedule timelines and submit RSVP configurations.</p>
+  </div>
+</div>
+
+<div class="rsvp-section">
+<button id="rsvpBtn" class="btn hidden">RSVP HERE ✨</button>
+<div id="rsvpStatus" class="rsvp-status-text hidden"></div>
+
+<div id="rsvpBox" class="rsvp-box hidden">
+<button type="button" id="closeRsvpBtn" class="close-btn" aria-label="Close dialog">✕</button>
+<form id="rsvpForm">
+<div class="form-group">
+  <label for="attending">Will you attend?</label>
+  <select id="attending" required>
+    <option value="">Select Option</option>
+    <option>Yes</option>
+    <option>No</option>
+  </select>
+</div>
+
+<!-- Extra conditional wrapper group for attendees only -->
+<div id="attendeeOptions">
+  <div class="form-group">
+    <label for="guests">Number of Guests</label>
+    <input id="guests" type="number" min="0" placeholder="0">
+  </div>
+  <div class="form-group">
+    <label for="accommodation">Accommodation Required?</label>
+    <select id="accommodation">
+      <option value="">Select Option</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+  <div id="roomsBox" class="form-group hidden">
+    <label for="rooms">Number of Rooms Required</label>
+    <input id="rooms" type="number" min="0" placeholder="0">
+  </div>
+  <div class="form-group">
+    <label>Meal Preference</label>
+    <div class="meal-toggle-container">
+      <div class="meal-option" data-value="Veg">Veg</div>
+      <div class="meal-option" data-value="Non-Veg">Non-Veg</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="message">Message for the Couple</label>
+  <textarea id="message" rows="2" placeholder="Leave your blessings..."></textarea>
+</div>
+<button class="submit" type="submit">Submit RSVP ✨</button>
+</form>
+</div>
+
+<div id="success" class="hidden">
+  <p class="success">❤️ Thank you! Your RSVP has been received.</p>
+</div>
+</div>
+
+<a href="index.html" class="back-home-link">← Wedding Home</a>
+</div>
+
+<script>
+const API='https://script.google.com/macros/s/AKfycbwi89NZGBQflnModu1axr6UcATCMPTM0fXe7-DnJSyth7qf7PrvSDsbjyUpwQ87RfCG/exec';
+
+const icons={mehendi:'🌿',haldi:'💛',shagun:'💰',ring:'💍',sangeet:'🎵',cocktail:'🥂',wedding:'👑'};
+const events={
+shagun:{title:'Shagun',date:'10 Dec 2026',venue:'Hotel The Eleganza',url:'https://maps.google.com/?q=Hotel+The+Eleganza'},
+ring:{title:'Ring Ceremony',date:'10 Dec 2026',venue:'Hotel The Eleganza',url:'https://maps.google.com/?q=Hotel+The+Eleganza'},
+sangeet:{title:'Sangeet',date:'10 Dec 2026',venue:'Hotel The Eleganza',url:'https://maps.google.com/?q=Hotel+The+Eleganza'},
+mehendi:{title:'Mehendi',date:'11 Dec 2026',venue:'Hotel The Eleganza',url:'https://maps.google.com/?q=Hotel+The+Eleganza'},
+cocktail:{title:'Cocktail',date:'11 Dec 2026',venue:'Hotel The Eleganza',url:'https://maps.google.com/?q=Hotel+The+Eleganza'},
+haldi:{title:'Haldi',date:'12 Dec 2026 (Morn)',venue:'Hotel The Eleganza',url:'https://maps.google.com/?q=Hotel+The+Eleganza'},
+wedding:{title:'Wedding',date:'12 Dec 2026 (Eve)',venue:'Annfield Lawn',url:'https://maps.google.com/?q=Annfield+Lawn+by+Monga+Tent+House+Vikasnagar'}
+};
+
+let selectedMeal = '';
+const guestNameEl = document.getElementById('guestName');
+const guestMessageEl = document.getElementById('guestMessage');
+const fallbackBox = document.getElementById('fallbackBox');
+const timelineEl = document.getElementById('timeline');
+
+let guest=new URLSearchParams(location.search).get('guest')||localStorage.getItem('guest');
+if(guest) localStorage.setItem('guest',guest);
+
+document.querySelectorAll('.meal-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.meal-option').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    selectedMeal = opt.getAttribute('data-value');
+  });
+});
+
+// Attendance conditional response rule filter logic[cite: 3]
+attending.addEventListener('change', () => {
+  if (attending.value === 'No') {
+    attendeeOptions.classList.add('hidden');
+    guests.value = '0';
+    accommodation.value = 'No';
+    roomsBox.classList.add('hidden');
+    rooms.value = '';
+    selectedMeal = '';
+    document.querySelectorAll('.meal-option').forEach(o => o.classList.remove('active'));
+  } else {
+    attendeeOptions.classList.remove('hidden');
+  }
+});
+
+function showGenericHomepage() {
+  timelineEl.classList.add('hidden');
+  fallbackBox.classList.remove('hidden');
+  guestNameEl.innerText='Invitation Link Required';
+  guestMessageEl.innerText='Please contact the family to receive your personalized invitation link to view schedule timelines and submit RSVP configurations.';
+}
+
+if(guest){
+fetch(API+'?type=guest&guest='+encodeURIComponent(guest)+'&t='+Date.now())
+.then(r=>r.json())
+.then(data=>{
+ if(!data.found) {
+   showGenericHomepage();
+   return;
+ }
+
+ fallbackBox.classList.add('hidden');
+ timelineEl.classList.remove('hidden');
+ 
+ // Introduce personalized welcome info element at top layout
+ const welcomeTxt = document.createElement('h2');
+ welcomeTxt.id = 'guestName';
+ welcomeTxt.innerText = '— Welcome, ' + data.name + ' —';
+ const welcomeMsg = document.createElement('p');
+ welcomeMsg.id = 'guestMessage';
+ welcomeMsg.innerText = 'We are delighted to invite you to celebrate our wedding festivities.';
+ 
+ document.querySelector('.header').appendChild(welcomeTxt);
+ document.querySelector('.header').appendChild(welcomeMsg);
+ rsvpBtn.classList.remove('hidden');
+
+ let delayStep = 1;
+ Object.keys(data.permissions).forEach(k=>{
+   if(data.permissions[k] && events[k]){
+      const e=events[k];
+      const card = document.createElement('div');
+      card.className = 'flip-card';
+      card.style.animationDelay = (delayStep * 0.08) + 's';
+      card.innerHTML = `
+        <div class="flip-inner">
+          <div class="flip-front">
+            <div class="card-decor"></div>
+            <div class="icon">${icons[k]}</div>
+            <h3>${e.title}</h3>
+          </div>
+          <div class="flip-back">
+            <div class="card-decor"></div>
+            <p>${e.date}</p>
+            <p class="venue">${e.venue}</p>
+            <a class="map-btn" target="_blank" href="${e.url}">Directions</a>
+          </div>
+        </div>
+      `;
+      timelineEl.appendChild(card);
+      delayStep++;
+   }
+ });
+
+ return fetch(API+'?guest='+encodeURIComponent(guest)+'&t='+Date.now());
+})
+.then(r=>r ? r.json() : null)
+.then(data=>{
+ if(data && data.found){
+  attending.value=data.attending||'';
+  guests.value=data.guests||'';
+  accommodation.value=data.accommodation||'';
+  rooms.value=data.rooms||'';
+  message.value=data.message||'';
+  
+  if(data.meal){
+    selectedMeal = data.meal;
+    const activeOpt = document.querySelector(`.meal-option[data-value="${data.meal}"]`);
+    if(activeOpt) activeOpt.classList.add('active');
+  }
+  
+  if(data.attending) {
+    rsvpBtn.innerHTML = 'EDIT RSVP ✎';
+    rsvpStatus.innerText = '✓ RSVP already submitted';
+    rsvpStatus.classList.remove('hidden');
+    if(data.attending === 'No') {
+      attendeeOptions.classList.add('hidden');
+    }
+  }
+  if(accommodation.value==='Yes') roomsBox.classList.remove('hidden');
+ }
+})
+.catch(()=>{
+  showGenericHomepage();
+});
+} else {
+  showGenericHomepage();
+}
+
+function closeRsvpBox() {
+ rsvpBox.classList.add('fade-out');
+ document.body.classList.remove('modal-open');
+ setTimeout(() => {
+   rsvpBox.classList.add('hidden');
+   if (rsvpStatus.innerText !== '') {
+     rsvpStatus.classList.remove('hidden');
+   }
+   rsvpBtn.classList.remove('hidden');
+ }, 400);
+}
+
+rsvpBtn.addEventListener('click',()=>{
+ rsvpBtn.classList.add('hidden');
+ rsvpStatus.classList.add('hidden');
+ rsvpBox.classList.remove('fade-out');
+ rsvpBox.classList.remove('hidden');
+ document.body.classList.add('modal-open');
+});
+
+closeRsvpBtn.addEventListener('click', closeRsvpBox);
+
+accommodation.addEventListener('change',()=>{
+ if(accommodation.value==='Yes') roomsBox.classList.remove('hidden');
+ else { roomsBox.classList.add('hidden'); rooms.value=''; }
+});
+
+rsvpForm.addEventListener('submit',e=>{
+e.preventDefault();
+const nameVal = document.getElementById('guestName') ? document.getElementById('guestName').innerText.replace('— Welcome, ','').replace(' —','') : 'Guest';
+fetch(API,{
+method:'POST',
+body:JSON.stringify({
+guest:guest,
+guestName:nameVal,
+attending:attending.value,
+guests:guests.value,
+accommodation:accommodation.value,
+rooms:rooms.value,
+meal:selectedMeal,
+message:message.value
+})
+}).then(()=>{
+ rsvpBox.classList.add('fade-out');
+ document.body.classList.remove('modal-open');
+ setTimeout(() => rsvpBox.classList.add('hidden'), 400);
+
+ rsvpBtn.innerHTML = 'EDIT RSVP ✎';
+ rsvpBtn.classList.remove('hidden');
+ rsvpStatus.innerText = '✓ RSVP already submitted';
+ rsvpStatus.classList.remove('hidden');
+
+ success.style.opacity = '0';
+ success.classList.remove('hidden');
+ setTimeout(() => success.style.opacity = '1', 50);
+
+ setTimeout(() => {
+   success.style.opacity = '0';
+   setTimeout(() => success.classList.add('hidden'), 500);
+ }, 3000);
+});
+});
+
+// Starscape System
+const c=stars,ctx=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();addEventListener('resize',resize);
+
+const s=[...Array(innerWidth<900?60:130)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4,a:Math.random(),sp:Math.random()*0.012}));
+
+let shootingStar = null;
+function launchShootingStar() {
+  shootingStar = {
+    x: Math.random() * (innerWidth * 0.6),
+    y: Math.random() * (innerHeight * 0.3),
+    len: Math.random() * 80 + 40,
+    speed: Math.random() * 15 + 10,
+    angle: 0.25 + Math.random() * 0.15,
+    opacity: 1
+  };
+  setTimeout(launchShootingStar, Math.random() * 6000 + 4000);
+}
+setTimeout(launchShootingStar, 2000);
+
+(function draw(){
+ctx.clearRect(0,0,c.width,c.height);
+s.forEach(st=>{st.a+=st.sp;if(st.a>1||st.a<0)st.sp*=-1;ctx.beginPath();ctx.arc(st.x,st.y,st.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${st.a})`;ctx.fill();});
+
+if(shootingStar) {
+  ctx.beginPath();
+  const dx = Math.cos(shootingStar.angle) * shootingStar.len;
+  const dy = Math.sin(shootingStar.angle) * shootingStar.len;
+  
+  let gradient = ctx.createLinearGradient(shootingStar.x, shootingStar.y, shootingStar.x - dx, shootingStar.y - dy);
+  gradient.addColorStop(0, `rgba(243, 229, 171, ${shootingStar.opacity})`);
+  gradient.addColorStop(1, 'rgba(243, 229, 171, 0)');
+  
+  ctx.strokeStyle = gradient;
+  ctx.lineWidth = 1.5;
+  ctx.moveTo(shootingStar.x, shootingStar.y);
+  ctx.lineTo(shootingStar.x - dx, shootingStar.y - dy);
+  ctx.stroke();
+  
+  shootingStar.x += Math.cos(shootingStar.angle) * shootingStar.speed;
+  shootingStar.y += Math.sin(shootingStar.angle) * shootingStar.speed;
+  shootingStar.opacity -= 0.025;
+  
+  if(shootingStar.opacity <= 0 || shootingStar.x > innerWidth || shootingStar.y > innerHeight) {
+    shootingStar = null;
+  }
+}
+requestAnimationFrame(draw);
+})();
+
+// Floating Lanterns
+const lanternContainer = document.getElementById('lanterns-layer');
+const lanternIcons = ['🏮', '✨'];
+for(let i=0; i<12; i++) {
+  const l = document.createElement('div');
+  l.className = 'lantern';
+  l.innerText = lanternIcons[i % lanternIcons.length];
+  l.style.left = (Math.random() * 96) + '%';
+  l.style.animationDelay = (Math.random() * 20) + 's';
+  l.style.animationDuration = (Math.random() * 15 + 20) + 's';
+  lanternContainer.appendChild(l);
+}
+</script>
+</body>
+</html>

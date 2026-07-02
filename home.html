@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Piyush & Kiran's Wedding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Ensuring everything remains completely centered in prose alignment */
+  body, .hero-content, .countdown {
+    text-align: center;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+  }
+  /* Hide the redundant welcome envelope layer if script.js relies on it */
+  #welcome {
+    display: none !important;
+  }
+  #website {
+    display: block !important;
+    opacity: 1 !important;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<canvas id="embers"></canvas>
+<div class="mist"></div>
+
+<div id="website">
+<section class="hero">
+<div class="hero-content">
+
+<div class="monogram">✦ P ✦ K ✦</div>
+
+<h1 class="names">Piyush & Kiran</h1>
+
+<p class="tagline">Two hearts. One journey.</p>
+
+<p class="date">
+12 December 2026<br>
+Dehradun, Uttarakhand
+</p>
+
+<div class="buttons">
+<a id="brideLink" href="javascript:void(0)" onclick="goToSide('bride.html')" class="big-btn">👰 Bride's Celebrations</a>
+<a id="groomLink" href="javascript:void(0)" onclick="goToSide('groom.html')" class="big-btn">🤵 Groom's Celebrations</a>
+</div>
+
+<button id="musicBtn">▶ Play Music</button>
+
+<div class="countdown">
+<div class="card"><span id="days">00</span><small>DAYS</small></div>
+<div class="card"><span id="hours">00</span><small>HOURS</small></div>
+<div class="card"><span id="minutes">00</span><small>MINUTES</small></div>
+<div class="card"><span id="seconds">00</span><small>SECONDS</small></div>
+</div>
+
+<div class="footer-text">
+The countdown to forever has begun.
+</div>
+
+</div>
+</section>
+</div>
+
+<audio id="music" loop>
+<source src="music/wedding.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+<script>
+  // Automatically attempt audio playback when entering from the first envelope page
+  window.addEventListener('DOMContentLoaded', () => {
+    const audioEl = document.getElementById('music');
+    if (audioEl) {
+      audioEl.play().catch(err => console.log("Audio playback waiting for user interaction:", err));
+    }
+  });
+
+  // Dynamic linking helper preserving personalization values down string chains
+  function goToSide(destinationPage) {
+    window.location.href = destinationPage + window.location.search;
+  }
+</script>
+
+</body>
+</html>

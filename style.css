@@ -1,0 +1,876 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:#000;
+  color:#fff;
+}
+
+/* ==========================
+   EFFECT LAYERS
+========================== */
+
+#stars,
+#embers{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+
+#stars{
+  z-index:1;
+}
+
+#embers{
+  z-index:2;
+}
+
+.mist{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:35vh;
+
+  background:
+  radial-gradient(
+    ellipse at bottom,
+    rgba(255,255,255,.15),
+    transparent 70%
+  );
+
+  filter:blur(40px);
+
+  animation:
+  mistMove 18s
+  ease-in-out infinite alternate;
+
+  z-index:3;
+  pointer-events:none;
+}
+
+@keyframes mistMove{
+  from{
+    transform:
+    translateX(-80px);
+  }
+
+  to{
+    transform:
+    translateX(80px);
+  }
+}
+
+/* ==========================
+   OPENING INVITATION
+========================== */
+
+#welcome{
+  position:fixed;
+  inset:0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:
+  rgba(0,0,0,.55);
+
+  backdrop-filter:blur(12px);
+
+  z-index:1000;
+
+  transition:1s;
+}
+
+.envelope{
+  width:min(90%,500px);
+
+  background:
+  linear-gradient(
+    #0d1a30,
+    #081321
+  );
+
+  border:
+  1px solid
+  rgba(217,194,163,.25);
+
+  border-radius:35px;
+
+  padding:65px 35px;
+
+  text-align:center;
+
+  box-shadow:
+  0 30px 100px
+  rgba(0,0,0,.6);
+
+  animation:
+  floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+  50%{
+    transform:
+    translateY(-10px);
+  }
+}
+
+.seal{
+  width:110px;
+  height:110px;
+
+  margin:auto;
+  margin-bottom:30px;
+
+  border-radius:50%;
+
+  background:#8b1111;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:#d9c2a3;
+  font-size:28px;
+}
+
+.small-text{
+  letter-spacing:5px;
+  font-size:14px;
+  opacity:.8;
+}
+
+.invite-title{
+  font-family:
+  'Great Vibes',
+  cursive;
+
+  font-size:64px;
+  color:#d9c2a3;
+
+  margin-top:20px;
+}
+
+.invite-subtitle{
+  margin-top:20px;
+  font-size:28px;
+}
+
+#openBtn{
+  margin-top:40px;
+
+  border:none;
+  border-radius:50px;
+
+  padding:18px 40px;
+
+  background:#d9c2a3;
+  color:#081321;
+
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* ==========================
+   WEBSITE
+========================== */
+
+#website{
+  display:none;
+  height:100vh;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+  height:100vh;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.60)
+  ),
+  url("images/hero.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:30px;
+
+  position:relative;
+}
+
+.hero-content{
+  width:90%;
+  max-width:1000px;
+
+  text-align:center;
+
+  position:relative;
+  z-index:20;
+}
+
+.monogram{
+  color:#d9c2a3;
+  font-size:24px;
+  letter-spacing:10px;
+  margin-bottom:20px;
+}
+
+.names{
+  font-family:'Great Vibes',cursive;
+  font-size:88px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #b88645,
+    #f2d89f,
+    #fff,
+    #f2d89f,
+    #b88645
+  );
+
+  background-size:300% auto;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:
+    shimmer 8s linear infinite;
+
+  text-shadow:
+    0 0 30px rgba(242,216,159,.25);
+}
+
+@keyframes shimmer{
+  from{
+    background-position:0%;
+  }
+  to{
+    background-position:300%;
+  }
+}
+
+.tagline{
+  margin-top:10px;
+  font-size:30px;
+}
+
+.date{
+  margin-top:20px;
+  font-size:22px;
+  line-height:1.5;
+}
+
+.invite-line{
+  margin-top:20px;
+  font-size:24px;
+  line-height:1.5;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.buttons{
+  margin-top:35px;
+
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.big-btn{
+  text-decoration:none;
+
+  min-width:300px;
+
+  padding:18px 30px;
+
+  border-radius:50px;
+
+  background:
+  rgba(255,255,255,.08);
+
+  border:
+  1px solid
+  rgba(217,194,163,.25);
+
+  backdrop-filter:blur(14px);
+
+  color:white;
+
+  font-size:24px;
+
+  transition:.4s;
+}
+
+.big-btn:hover{
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 20px 50px
+    rgba(242,216,159,.25);
+
+  background:
+    rgba(255,255,255,.15);
+}
+
+#musicBtn{
+  margin-top:25px;
+
+  border:none;
+
+  background:
+  rgba(255,255,255,.08);
+
+  color:white;
+
+  border-radius:50px;
+
+  padding:14px 35px;
+
+  font-size:20px;
+
+  cursor:pointer;
+}
+
+/* ==========================
+   COUNTDOWN
+========================== */
+
+.countdown{
+  margin-top:35px;
+
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.card{
+  width:110px;
+  height:110px;
+
+  background:
+  rgba(255,255,255,.08);
+
+  border:
+  1px solid
+  rgba(255,255,255,.12);
+
+  backdrop-filter:blur(14px);
+
+  border-radius:25px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.card span{
+  color:#d9c2a3;
+  font-size:34px;
+}
+
+.card small{
+  margin-top:8px;
+  letter-spacing:2px;
+}
+
+.footer-text{
+  margin-top:30px;
+  font-size:18px;
+  opacity:.85;
+  font-style:italic;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:900px){
+
+  html,
+  body{
+    overflow:auto;
+  }
+
+  .hero{
+    animation:
+  heroZoom 25s linear infinite alternate;
+  @keyframes heroZoom{
+  from{
+    background-size:100%;
+  }
+
+  to{
+    background-size:110%;
+  }
+}
+    min-height:100vh;
+    height:auto;
+    padding:70px 20px;
+  }
+
+  .names{
+    font-size:58px;
+    line-height:1;
+  }
+
+  .tagline{
+    font-size:22px;
+  }
+
+  .date{
+    font-size:18px;
+  }
+
+  .invite-line{
+    font-size:18px;
+  }
+
+  .big-btn{
+    width:100%;
+    min-width:unset;
+    font-size:22px;
+  }
+
+  #musicBtn{
+    width:100%;
+  }
+
+  .card{
+    animation:
+  floatCard 6s ease-in-out infinite;
+  .card:nth-child(2){
+  animation-delay:1s;
+}
+
+.card:nth-child(3){
+  animation-delay:2s;
+}
+
+.card:nth-child(4){
+  animation-delay:3s;
+}
+    width:100px;
+    height:100px;
+  }
+
+  .card span{
+    font-size:30px;
+  }
+
+  .invite-title{
+    font-size:48px;
+  }
+
+  .invite-subtitle{
+    font-size:22px;
+  }
+
+  .seal{
+    width:95px;
+    height:95px;
+    font-size:22px;
+  }
+
+  .footer-text{
+    margin-bottom:20px;
+  }
+}
+
+/* ==========================
+   BRIDE PAGE HERO
+========================== */
+
+.sub-hero{
+  min-height:55vh;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.60)
+  ),
+  url("images/hero.jpg");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:100px 20px;
+
+  position:relative;
+}
+
+.back-btn{
+  display:inline-block;
+
+  margin-top:35px;
+
+  padding:14px 35px;
+
+  border-radius:50px;
+
+  text-decoration:none;
+
+  background:
+  rgba(255,255,255,.08);
+
+  border:
+  1px solid
+  rgba(217,194,163,.25);
+
+  backdrop-filter:blur(12px);
+
+  color:white;
+
+  font-size:20px;
+
+  transition:.4s;
+}
+
+.back-btn:hover{
+  transform:
+  translateY(-4px);
+
+  background:
+  rgba(255,255,255,.14);
+}
+
+/* ==========================
+   EVENT CARDS
+========================== */
+
+.event-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(
+    auto-fit,
+    minmax(300px,1fr)
+  );
+
+  gap:35px;
+}
+
+.event-card{
+  background:
+  rgba(255,255,255,.06);
+
+  border:
+  1px solid
+  rgba(255,255,255,.10);
+
+  border-radius:30px;
+
+  padding:40px 30px;
+
+  text-align:center;
+
+  backdrop-filter:blur(15px);
+
+  transition:.4s;
+}
+
+.event-card:hover{
+  transform:
+  translateY(-8px);
+}
+
+.event-card h3{
+  color:#d9c2a3;
+
+  font-size:34px;
+
+  margin-bottom:25px;
+}
+
+.event-card p{
+  font-size:22px;
+
+  line-height:1.7;
+
+  margin-bottom:10px;
+}
+
+/* ==========================
+   MAP BUTTON
+========================== */
+
+.map-btn{
+  display:inline-block;
+
+  margin-top:25px;
+
+  padding:14px 30px;
+
+  border-radius:50px;
+
+  background:#d9c2a3;
+
+  color:#081321;
+
+  text-decoration:none;
+
+  font-size:20px;
+
+  transition:.4s;
+}
+
+.map-btn:hover{
+  transform:
+  translateY(-4px);
+}
+
+/* ==========================
+   RSVP FORM
+========================== */
+
+.rsvp-form{
+  max-width:700px;
+
+  margin:auto;
+
+  background:
+  rgba(255,255,255,.06);
+
+  border:
+  1px solid
+  rgba(255,255,255,.10);
+
+  border-radius:35px;
+
+  padding:45px;
+
+  backdrop-filter:blur(15px);
+}
+
+.rsvp-form label{
+  display:block;
+
+  margin-top:25px;
+  margin-bottom:15px;
+
+  font-size:26px;
+}
+
+.radio-group{
+  display:flex;
+  gap:40px;
+  margin-bottom:20px;
+}
+
+.radio-group label{
+  margin:0;
+  font-size:22px;
+}
+
+input,
+textarea{
+  width:100%;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:20px;
+
+  background:
+  rgba(255,255,255,.10);
+
+  color:white;
+
+  font-size:20px;
+
+  font-family:
+  'Cormorant Garamond',
+  serif;
+}
+
+textarea{
+  resize:vertical;
+}
+
+.submit-btn{
+  margin-top:35px;
+
+  width:100%;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:50px;
+
+  background:#d9c2a3;
+
+  color:#081321;
+
+  font-size:24px;
+
+  cursor:pointer;
+
+  transition:.4s;
+}
+
+.submit-btn:hover{
+  transform:
+  translateY(-4px);
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:900px){
+
+  .sub-hero{
+    min-height:45vh;
+    padding:80px 20px;
+  }
+
+  .event-card h3{
+    font-size:28px;
+  }
+
+  .event-card p{
+    font-size:18px;
+  }
+
+  .rsvp-form{
+    padding:30px 25px;
+  }
+
+  .rsvp-form label{
+    font-size:22px;
+  }
+
+  .radio-group{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  input,
+  textarea{
+    font-size:18px;
+  }
+
+  .submit-btn{
+    font-size:22px;
+  }
+}
+
+/* ==========================
+   BRIDE & GROOM PAGES
+========================== */
+
+body.sub-page{
+  overflow:auto;
+}
+
+body.sub-page .hero,
+body.sub-page .sub-hero{
+  min-height:60vh;
+  height:auto;
+}
+
+body.sub-page{
+  overflow:auto;
+}
+
+
+.welcome-box{
+  margin-top:25px;
+  text-align:center;
+  animation:fadeUp 1.5s;
+}
+
+.welcome-box h2{
+  color:#d8c08a;
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.welcome-box p{
+  color:#ffffff;
+  font-size:20px;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+@media(max-width:900px){
+
+  .names{
+    font-size:58px;
+  }
+
+  .countdown{
+    gap:10px;
+  }
+
+  .card{
+    width:85px;
+    height:85px;
+  }
+
+  .card span{
+    font-size:28px;
+  }
+
+  .big-btn{
+    width:100%;
+  }
+
+  .mist{
+    height:20vh;
+  }
+}
+
