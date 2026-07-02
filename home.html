@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Ensuring everything remains completely centered in prose alignment */
   body, .hero-content, .countdown {
     text-align: center;
   }
@@ -21,13 +20,21 @@
     gap: 15px;
     margin: 20px auto;
   }
-  /* Hide the redundant welcome envelope layer if script.js relies on it */
   #welcome {
     display: none !important;
   }
   #website {
     display: block !important;
     opacity: 1 !important;
+  }
+  
+  /* Fix name text getting cut off on mobile viewports */
+  @media(max-width:900px){
+    .names {
+      font-size: 42px !important; /* Scaled down slightly further to ensure zero clipping */
+      line-height: 1.2 !important;
+      word-wrap: break-word;
+    }
   }
 </style>
 </head>
@@ -80,7 +87,6 @@ The countdown to forever has begun.
 
 <script src="script.js"></script>
 <script>
-  // Automatically attempt audio playback when entering from the first envelope page
   window.addEventListener('DOMContentLoaded', () => {
     const audioEl = document.getElementById('music');
     if (audioEl) {
@@ -88,7 +94,6 @@ The countdown to forever has begun.
     }
   });
 
-  // Dynamic linking helper preserving personalization values down string chains
   function goToSide(destinationPage) {
     window.location.href = destinationPage + window.location.search;
   }

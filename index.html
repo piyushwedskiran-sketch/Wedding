@@ -35,11 +35,20 @@
         .container {
             text-align: center;
             z-index: 2;
-            transition: all 1s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            /* Added smooth, slower 2.5-second cinematic fadeout */
+            transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1), transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        /* Triggered on open for an elegant dissolve effect */
+        .container.fade-out {
+            opacity: 0;
+            transform: scale(0.96) translateY(-15px);
+            pointer-events: none;
         }
 
         h1 {
@@ -193,6 +202,7 @@
             background-color: #fff;
             border-radius: 50%;
             animation: twinkle 2s infinite ease-in-out;
+            transition: opacity 2s ease;
         }
 
         @keyframes twinkle {
@@ -208,6 +218,7 @@
             opacity: 0.6;
             animation: pulse 1.5s infinite ease-in-out;
             text-align: center;
+            transition: opacity 0.5s ease;
         }
 
         @keyframes pulse {
@@ -217,7 +228,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="mainContainer">
         <h1>Piyush & Kiran's Wedding</h1>
         <div class="wedding-date">12 December 2026</div>
 
@@ -231,7 +242,7 @@
             <div class="envelope"></div>
         </div>
 
-        <div class="click-hint">Click Envelope to Open</div>
+        <div class="click-hint" id="hintText">Click Envelope to Open</div>
     </div>
 
     <script>
@@ -250,11 +261,25 @@
             if (!element.classList.contains('open')) {
                 element.classList.add('open');
                 
+                // Instantly hide the bottom text hint to clean up layout focus
+                document.getElementById('hintText').style.opacity = '0';
+                
                 sessionStorage.setItem('playMusicOnLoad', 'true');
                 
+                // Delays the container fade out slightly so guests can observe the folding flap action
+                setTimeout(() => {
+                    document.getElementById('mainContainer').classList.add('fade-out');
+                    
+                    // Smoothly fade out background stars in sync
+                    document.querySelectorAll('.star').forEach(star => {
+                        star.style.opacity = '0';
+                    });
+                }, 800);
+                
+                // Executing page change exactly as the slow 2.5-second layout transition finishes
                 setTimeout(() => {
                     window.location.href = 'home.html' + window.location.search;
-                }, 1800);
+                }, 3300); // 800ms wait + 2500ms fade transition time
             }
         }
     </script>

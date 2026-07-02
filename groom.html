@@ -24,7 +24,6 @@ pointer-events:none;
 z-index:1;
 }
 
-/* Luxury Lantern Container Layer */
 #lanterns-layer {
 position:fixed;
 inset:0;
@@ -46,7 +45,6 @@ animation:floatUp 25s linear infinite;
 100% { transform:translateY(-15vh) translateX(50px) scale(1.1); opacity:0; }
 }
 
-/* Background Blur Layer triggered when RSVP opens */
 body.modal-open .wrapper > *:not(.rsvp-section) {
 filter:blur(8px);
 transition:filter 0.4s ease;
@@ -87,7 +85,6 @@ margin-bottom:5px;
 #guestName{font-size:clamp(24px, 4vh, 36px);color:#f3e5ab;font-weight:400;letter-spacing:1px;margin-top:10px}
 #guestMessage{font-size:clamp(16px, 2.4vh, 21px);color:#e0e0e0;opacity:0.9;max-width:600px;margin:15px auto 0;line-height:1.6}
 
-/* Elegant Dynamic Grid with Slightly Larger Cards */
 .timeline{
 margin:15px auto;
 display:flex;
@@ -99,7 +96,6 @@ width:100%;
 max-height:52vh;
 }
 
-/* Premium 3D Cards */
 .flip-card{
 perspective:1500px;
 width:215px;
@@ -176,7 +172,6 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 .map-btn:hover{transform:scale(1.05);box-shadow:0 6px 15px rgba(229,193,88,0.25)}
 
-/* Centered Elegant Generic Landing Layout Elements */
 .generic-fallback-box {
 display:flex;
 flex-direction:column;
@@ -201,7 +196,7 @@ opacity:0.85;
 .rsvp-section {
 width:100%;
 max-width:500px;
-margin-bottom:15px;
+margin-bottom:5px;
 text-align:center;
 position:relative;
 z-index:100;
@@ -239,7 +234,6 @@ letter-spacing:0.5px;
 text-align:center;
 }
 
-/* Luxury RSVP Box with Dynamic Blur Overlay integration */
 .rsvp-box{
 position:fixed;
 bottom:80px;
@@ -258,7 +252,6 @@ transition:opacity 0.4s ease, transform 0.4s ease;
 .hidden{display:none!important}
 .fade-out { opacity:0; pointer-events:none; transform:translateX(-50%) translateY(15px); }
 
-/* Luxury Form Close Button */
 .close-btn {
 position:absolute;
 top:14px;
@@ -308,7 +301,6 @@ outline:none;
 border-color:rgba(212,175,55,0.7);
 }
 
-/* Luxury Meal Selection Toggle */
 .meal-toggle-container {
 display:flex;
 gap:12px;
@@ -372,28 +364,32 @@ transition:opacity 0.5s ease;
 .success{text-align:center;font-size:18px;color:#e5c158;font-weight:600}
 
 .back-home-link {
-padding:6px 22px;
-border:1px solid rgba(212,175,55,0.25);
+padding:8px 24px;
+border:1px solid rgba(212,175,55,0.4);
 border-radius:20px;
 text-decoration:none;
 color:#ffffff;
-opacity:0.4;
-font-size:13px;
+background: rgba(0, 0, 0, 0.4);
+opacity:1 !important;
+font-size:14px;
 transition:0.3s;
-margin-bottom:5px;
+margin-top:10px;
+margin-bottom:10px;
 display:inline-block;
+position:relative;
+z-index:110;
 }
-.back-home-link:hover { opacity:1; color:#e5c158; border-color:rgba(212,175,55,0.45) }
+.back-home-link:hover { color:#e5c158; border-color:rgba(212,175,55,0.8) }
 
 @media(max-width:768px){
-.wrapper{padding:15px}
-.timeline{gap:12px;max-height:55vh}
-.flip-card{width:160px;height:128px}
-.icon{font-size:24px;margin-bottom:4px}
-.flip-front h3{font-size:14px}
-.flip-back p{font-size:12px}
-.flip-back .venue{font-size:11px;margin-bottom:4px}
-.map-btn{padding:4px 12px;font-size:10px}
+.wrapper{padding:10px; justify-content: space-between;}
+.timeline{gap:10px;max-height:42vh;overflow-y:auto;padding-bottom:10px;}
+.flip-card{width:145px;height:120px}
+.icon{font-size:20px;margin-bottom:2px}
+.flip-front h3{font-size:13px}
+.flip-back p{font-size:11px}
+.flip-back .venue{font-size:10px;margin-bottom:2px}
+.map-btn{padding:3px 10px;font-size:10px}
 .generic-fallback-box { padding:20px; max-width:90% }
 .rsvp-box{bottom:70px;padding:16px 20px 20px;border-radius:20px}
 .form-group{margin-bottom:6px}
@@ -414,11 +410,9 @@ input,select,textarea,.meal-option{padding:7px;font-size:13px}
 <div class="divider">✦  &nbsp;  ✦  &nbsp;  ✦</div>
 </div>
 
-<!-- Dynamic Container Layer -->
 <div id="mainContent" class="wrapper-dynamic-layer" style="width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1;">
   <div id="timeline" class="timeline"></div>
   
-  <!-- Centered fallback box shown if link is generic/missing -->
   <div id="fallbackBox" class="generic-fallback-box hidden">
     <div class="generic-ornament">👑</div>
     <h2 id="guestName">Invitation Link Required</h2>
@@ -442,7 +436,6 @@ input,select,textarea,.meal-option{padding:7px;font-size:13px}
   </select>
 </div>
 
-<!-- Extra conditional wrapper group for attendees only -->
 <div id="attendeeOptions">
   <div class="form-group">
     <label for="guests">Number of Guests</label>
@@ -482,7 +475,7 @@ input,select,textarea,.meal-option{padding:7px;font-size:13px}
 </div>
 </div>
 
-<a href="index.html" class="back-home-link">← Wedding Home</a>
+<a href="javascript:void(0)" onclick="goToSide('home.html')" class="back-home-link">← Wedding Home</a>
 </div>
 
 <script>
@@ -508,6 +501,10 @@ const timelineEl = document.getElementById('timeline');
 let guest=new URLSearchParams(location.search).get('guest')||localStorage.getItem('guest');
 if(guest) localStorage.setItem('guest',guest);
 
+function goToSide(destinationPage) {
+  window.location.href = destinationPage + window.location.search;
+}
+
 document.querySelectorAll('.meal-option').forEach(opt => {
   opt.addEventListener('click', () => {
     document.querySelectorAll('.meal-option').forEach(o => o.classList.remove('active'));
@@ -516,7 +513,6 @@ document.querySelectorAll('.meal-option').forEach(opt => {
   });
 });
 
-// Attendance conditional response rule filter logic[cite: 3]
 attending.addEventListener('change', () => {
   if (attending.value === 'No') {
     attendeeOptions.classList.add('hidden');
@@ -550,7 +546,6 @@ fetch(API+'?type=guest&guest='+encodeURIComponent(guest)+'&t='+Date.now())
  fallbackBox.classList.add('hidden');
  timelineEl.classList.remove('hidden');
  
- // Introduce personalized welcome info element at top layout
  const welcomeTxt = document.createElement('h2');
  welcomeTxt.id = 'guestName';
  welcomeTxt.innerText = '— Welcome, ' + data.name + ' —';
@@ -687,7 +682,6 @@ message:message.value
 });
 });
 
-// Starscape System
 const c=stars,ctx=c.getContext('2d');
 function resize(){c.width=innerWidth;c.height=innerHeight}
 resize();addEventListener('resize',resize);
@@ -738,7 +732,6 @@ if(shootingStar) {
 requestAnimationFrame(draw);
 })();
 
-// Floating Lanterns
 const lanternContainer = document.getElementById('lanterns-layer');
 const lanternIcons = ['🏮', '✨'];
 for(let i=0; i<12; i++) {
