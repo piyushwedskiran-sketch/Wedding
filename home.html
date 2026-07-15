@@ -1,103 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Piyush & Kiran's Wedding</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<style>
-  body, .hero-content, .countdown {
-    text-align: center;
-  }
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px auto;
-  }
-  #welcome {
-    display: none !important;
-  }
-  #website {
-    display: block !important;
-    opacity: 1 !important;
-  }
-  
-  /* Fix name text getting cut off on mobile viewports */
-  @media(max-width:900px){
-    .names {
-      font-size: 42px !important; /* Scaled down slightly further to ensure zero clipping */
-      line-height: 1.2 !important;
-      word-wrap: break-word;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Piyush & Kiran's Wedding Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #190a1a;
+            --panel-bg: rgba(25, 10, 26, 0.75);
+            --gold-accent: #e8c547;
+            --text-light: #f3e5e8;
+            --border-gold: linear-gradient(135deg, #d4af37, #f5e49e, #aa7c11, #d4af37);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden !important;
+            position: fixed;
+            background-color: var(--bg-dark);
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M40 0C30 20 10 30 0 40c10 10 30 20 40 40 10-20 30-30 40-40C70 30 50 20 40 0zm0 10c7 13 20 20 27 27-7 7-20 14-27 27-7-13-20-20-27-27 7-7 20-14 27-27z'/%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 80px 80px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(140, 76, 90, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            width: min(90%, 400px);
+            background: var(--panel-bg);
+            border-radius: 28px;
+            padding: clamp(30px, 6vh, 45px) clamp(24px, 6vw, 36px);
+            text-align: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 28px;
+            padding: 1.5px;
+            background: var(--border-gold);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.4rem, 6vh, 2.9rem);
+            color: var(--gold-accent);
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .intro-text {
+            font-size: clamp(0.8rem, 1.8vh, 0.9rem);
+            line-height: 1.6;
+            font-weight: 300;
+            color: #d8c2d4;
+            margin-bottom: 25px;
+        }
+
+        .login-box {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .input-group {
+            width: 100%;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #c9afc4;
+            margin-left: 4px;
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            display: block;
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1.15rem;
+            letter-spacing: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 10px rgba(232, 197, 71, 0.25);
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .login-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 15px;
+            background: linear-gradient(135deg, #e8c547, #cfa832);
+            border: none;
+            border-radius: 12px;
+            color: #190a1a;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(232, 197, 71, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 197, 71, 0.45);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-top: 2px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<canvas id="stars"></canvas>
-<canvas id="embers"></canvas>
-<div class="mist"></div>
+    <audio id="weddingMusic" src="music.mp3" loop></audio>
 
-<div id="website">
-<section class="hero">
-<div class="hero-content">
+    <div class="wrapper">
+        <h2 class="title">Our Celebration</h2>
+        <p class="intro-text">
+            Welcome to the digital corner of our wedding. Please enter your strict 6-digit access code below.
+        </p>
 
-<div class="monogram">✦ P ✦ K ✦</div>
+        <div class="login-box">
+            <div class="input-group">
+                <label for="inviteCode">Unique Access Code</label>
+                <input type="text" id="inviteCode" placeholder="••••••" maxlength="6" pattern="[0-9]*" inputmode="numeric" autocomplete="off">
+            </div>
 
-<h1 class="names">Piyush & Kiran</h1>
+            <div id="errorMsg" class="error-message">Invalid access code. Please try again.</div>
 
-<p class="tagline">Two hearts. One journey.</p>
+            <button class="login-btn" onclick="validateAccess()">Open Personal Invitation</button>
+        </div>
+    </div>
 
-<p class="date">
-12 December 2026<br>
-Dehradun, Uttarakhand
-</p>
+    <script>
+        const API = 'https://script.google.com/macros/s/AKfycbzY0sRC1_es0jBRzyD6zUvf3wra8uh1gv0wjg3w1GHMsPG_Udsg5zu32C2viIWxsjNs/exec';
 
-<div class="buttons">
-<a id="brideLink" href="javascript:void(0)" onclick="goToSide('bride.html')" class="big-btn">👰 Bride's Celebrations</a>
-<a id="groomLink" href="javascript:void(0)" onclick="goToSide('groom.html')" class="big-btn">🤵 Groom's Celebrations</a>
-</div>
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, { passive: false });
 
-<button id="musicBtn">▶ Play Music</button>
+        window.addEventListener('load', () => {
+            const music = document.getElementById('weddingMusic');
+            const shouldPlay = localStorage.getItem('playMusicOnLoad');
+            const savedTime = localStorage.getItem('music_current_time');
 
-<div class="countdown">
-<div class="card"><span id="days">00</span><small>DAYS</small></div>
-<div class="card"><span id="hours">00</span><small>HOURS</small></div>
-<div class="card"><span id="minutes">00</span><small>MINUTES</small></div>
-<div class="card"><span id="seconds">00</span><small>SECONDS</small></div>
-</div>
+            if (music && shouldPlay === 'true') {
+                if (savedTime) {
+                    music.currentTime = parseFloat(savedTime);
+                }
+                
+                music.play().then(() => {
+                    setInterval(() => {
+                        localStorage.setItem('music_current_time', music.currentTime);
+                    }, 500);
+                }).catch(err => {
+                    console.log("Interaction required to resume music.");
+                    document.body.addEventListener('click', () => {
+                        music.play();
+                    }, { once: true });
+                });
+            }
+        });
 
-<div class="footer-text">
-The countdown to forever has begun.
-</div>
+        async function validateAccess() {
+            const codeInput = document.getElementById('inviteCode').value.trim();
+            const errorElement = document.getElementById('errorMsg');
 
-</div>
-</section>
-</div>
+            if (!codeInput || codeInput.length !== 6) {
+                errorElement.textContent = "Please enter a valid 6-digit code.";
+                errorElement.style.opacity = '1';
+                return;
+            }
 
-<audio id="music" loop>
-<source src="music/wedding.mp3" type="audio/mpeg">
-</audio>
+            try {
+                // Fetching with strict redirect instruction
+                const response = await fetch(API + '?type=guest&code=' + encodeURIComponent(codeInput), {
+                    method: 'GET',
+                    redirect: 'follow'
+                });
+                
+                const data = await response.json();
 
-<script src="script.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const audioEl = document.getElementById('music');
-    if (audioEl) {
-      audioEl.play().catch(err => console.log("Audio playback waiting for user interaction:", err));
-    }
-  });
-
-  function goToSide(destinationPage) {
-    window.location.href = destinationPage + window.location.search;
-  }
-</script>
-
+                if (data && data.found && data.active) {
+                    errorElement.style.opacity = '0';
+                    localStorage.setItem('guest', codeInput); 
+                    window.location.href = 'personalized_invite.html?guest=' + encodeURIComponent(codeInput);
+                } else {
+                    errorElement.textContent = "Invalid security access code.";
+                    errorElement.style.opacity = '1';
+                    document.getElementById('inviteCode').value = '';
+                }
+            } catch (error) {
+                console.error("Database error:", error);
+                errorElement.textContent = "Unable to connect to database. Please try again.";
+                errorElement.style.opacity = '1';
+            }
+        }
+    </script>
 </body>
 </html>

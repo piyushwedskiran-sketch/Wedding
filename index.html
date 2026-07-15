@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Piyush & Kiran's Wedding</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #b392ac;
-            --secondary-color: #735d78;
-            --accent-color: #e8c547;
-            --bg-color: #2b1b2c;
-            --text-color: #fff;
+            --bg-color: #f5d6dc;
+            --envelope-color: #e2a2b1;
+            --flap-color: #d18293;
+            --gold-gradient: linear-gradient(135deg, #f5e49e, #d4af37, #aa7c11, #d4af37, #f5e49e);
+            --gold-foil: linear-gradient(90deg, #d4af37, #f5e49e, #aa7c11, #d4af37);
         }
 
         * {
@@ -20,266 +20,268 @@
             padding: 0;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        html, body {
+            width: 100%;
+            height: 100%;
             overflow: hidden;
-            perspective: 1000px;
-        }
-
-        .container {
-            text-align: center;
-            z-index: 2;
+            background-color: var(--bg-color);
+            font-family: 'Poppins', sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            /* Added smooth, slower 2.5-second cinematic fadeout */
-            transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1), transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform;
+            align-items: center;
+            perspective: 1500px;
+            touch-action: none;
         }
 
-        /* Triggered on open for an elegant dissolve effect */
-        .container.fade-out {
-            opacity: 0;
-            transform: scale(0.96) translateY(-15px);
+        /* Full Screen Envelope Container */
+        .envelope-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: var(--envelope-color);
+            
+            /* Premium Royal Damask/Floral SVG Embroidery Pattern */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M40 0C30 20 10 30 0 40c10 10 30 20 40 40 10-20 30-30 40-40C70 30 50 20 40 0zm0 10c7 13 20 20 27 27-7 7-20 14-27 27-7-13-20-20-27-27 7-7 20-14 27-27z'/%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
+        }
+
+        /* Cinematic Golden Flash Flare Effect */
+        .glow-flare {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255, 244, 200, 1) 0%, rgba(212, 175, 55, 0.9) 25%, rgba(212, 175, 55, 0.4) 50%, rgba(212, 175, 55, 0) 70%);
+            border-radius: 50%;
+            z-index: 99;
             pointer-events: none;
-        }
-
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            color: var(--accent-color);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-
-        .wedding-date {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            font-weight: 300;
-            text-align: center;
-        }
-
-        .envelope-wrapper {
-            position: relative;
-            cursor: pointer;
-            margin: 0 auto;
-        }
-
-        .envelope {
-            position: relative;
-            width: 280px;
-            height: 180px;
-            background-color: var(--secondary-color);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            transition: transform 0.5s ease;
-        }
-
-        .envelope::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-top: 90px solid transparent;
-            border-right: 140px solid var(--primary-color);
-            border-bottom: 90px solid var(--primary-color);
-            border-bottom-right-radius: 10px;
-            z-index: 3;
-        }
-
-        .envelope::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-top: 90px solid transparent;
-            border-left: 140px solid var(--primary-color);
-            border-bottom: 90px solid var(--primary-color);
-            border-bottom-left-radius: 10px;
-            z-index: 3;
-        }
-
-        .front-flap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-left: 140px solid transparent;
-            border-right: 140px solid transparent;
-            border-top: 100px solid var(--secondary-color);
-            transform-origin: top;
-            transition: transform 0.5s ease 0.5s, z-index 0.2s ease 0.5s;
-            z-index: 4;
-        }
-
-        .letter {
-            position: absolute;
-            bottom: 5px;
-            left: 10px;
-            width: 260px;
-            height: 160px;
-            background-color: #fff;
-            border-radius: 5px;
-            z-index: 2;
-            transition: transform 0.5s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-        }
-
-        .letter p {
-            color: #333;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            text-align: center;
-        }
-
-        .letter .signature {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.5rem;
-            margin-top: 10px;
-            color: var(--secondary-color);
-        }
-
-        .wax-seal {
-            position: absolute;
-            top: 80px;
-            left: 125px;
-            width: 30px;
-            height: 30px;
-            background-color: var(--accent-color);
-            border-radius: 50%;
-            z-index: 5;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.5s ease 0.5s, opacity 0.3s ease 0.4s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.7rem;
-            color: #333;
-        }
-
-        .envelope-wrapper.open .front-flap {
-            transform: rotateX(180deg);
-            z-index: 1;
-        }
-
-        .envelope-wrapper.open .wax-seal {
-            transform: translate(-15px, -50px) scale(0);
+            transition: transform 1.8s cubic-bezier(0.1, 0.8, 0.25, 1), opacity 1.2s ease;
             opacity: 0;
+            mix-blend-mode: screen;
         }
 
-        .envelope-wrapper.open .letter {
-            transform: translateY(-80px);
-            z-index: 4;
+        .glow-flare.active {
+            transform: translate(-50%, -50%) scale(350);
+            opacity: 1;
         }
 
-        .envelope-wrapper.open .envelope {
-            transform: translateY(40px);
-        }
-
-        .star {
+        /* Elegant Banner Text with Gold Shadow */
+        .banner-text {
             position: absolute;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: twinkle 2s infinite ease-in-out;
-            transition: opacity 2s ease;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .click-hint {
-            margin-top: 25px;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0.6;
-            animation: pulse 1.5s infinite ease-in-out;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
             text-align: center;
+            z-index: 6;
+            pointer-events: none;
             transition: opacity 0.5s ease;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.9; }
+        .banner-text h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.2rem, 5.5vh, 2.8rem);
+            color: #612d38;
+            text-shadow: 0px 1px 1px rgba(255,255,255,0.8);
+        }
+
+        .banner-text p {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8c4c5a;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* --- Full Screen Geometric Envelope Flaps --- */
+        .flap-left, .flap-right {
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .flap-left {
+            left: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.06) 0%, transparent 70%);
+            border-right: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .flap-right {
+            right: 0;
+            background: linear-gradient(-45deg, rgba(0,0,0,0.06) 0%, transparent 70%);
+            border-left: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .flap-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 46%;
+            background: linear-gradient(0deg, rgba(0,0,0,0.08) 0%, transparent 100%);
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+            z-index: 3;
+            pointer-events: none;
+            filter: drop-shadow(0px -1px 0px rgba(212, 175, 55, 0.3));
+        }
+
+        /* Animated Opening Top Flap with embroidery & gold piping */
+        .flap-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: var(--flap-color);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.15'%3E%3Cpath d='M40 0C30 20 10 30 0 40c10 10 30 20 40 40 10-20 30-30 40-40C70 30 50 20 40 0zm0 10c7 13 20 20 27 27-7 7-20 14-27 27-7-13-20-20-27-27 7-7 20-14 27-27z'/%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 4;
+            filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.22));
+        }
+
+        /* Gold foil pipeline border tracing the V flap shape */
+        .flap-top::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold-foil);
+            clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 98%, 100% 0, 0 0);
+            pointer-events: none;
+        }
+
+        .envelope-container.open .flap-top {
+            transform: rotateX(180deg) scaleY(0.98);
+            z-index: 1;
+            filter: drop-shadow(0px -5px 10px rgba(0,0,0,0.1));
+        }
+
+        /* --- Luxury 3D Gold Wax Seal --- */
+        .wax-seal-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(85px, 16vw, 115px);
+            height: clamp(85px, 16vw, 115px);
+            background: var(--gold-gradient);
+            border-radius: 50%;
+            z-index: 5;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(100, 40, 50, 0.5), 
+                        inset 0 4px 8px rgba(255,255,255,0.45), 
+                        inset 0 -4px 8px rgba(0,0,0,0.45);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+        }
+
+        .wax-seal-btn::after {
+            content: 'TAP TO\nOPEN';
+            white-space: pre-line;
+            text-align: center;
+            font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            line-height: 1.3;
+            letter-spacing: 1.5px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-weight: 600;
+            position: absolute;
+            inset: 6px;
+            border: 2px dashed rgba(255, 255, 255, 0.55);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slowRotate 15s linear infinite;
+        }
+
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .wax-seal-btn:hover {
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
+        .envelope-container.open .wax-seal-btn {
+            transform: translate(-50%, -50%) scale(0) rotate(-90deg);
+            opacity: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container" id="mainContainer">
-        <h1>Piyush & Kiran's Wedding</h1>
-        <div class="wedding-date">12 December 2026</div>
 
-        <div class="envelope-wrapper" onclick="openEnvelope(this)">
-            <div class="front-flap"></div>
-            <div class="wax-seal">❤</div>
-            <div class="letter">
-                <p>We invite you to share in our joy and celebrate our wedding festivities.</p>
-                <p class="signature">Piyush & Kiran</p>
-            </div>
-            <div class="envelope"></div>
+    <!-- Embedded Audio File (replace with your online source link if needed) -->
+    <audio id="weddingMusic" src="music.mp3" loop></audio>
+
+    <div class="envelope-container" id="envelope" onclick="openEnvelope()">
+        <div class="flap-top"></div>
+        <div class="flap-left"></div>
+        <div class="flap-right"></div>
+        <div class="flap-bottom"></div>
+
+        <div class="wax-seal-btn"></div>
+
+        <div class="banner-text" id="banner">
+            <h2>Piyush & Kiran</h2>
+            <p>You Are Invited</p>
         </div>
 
-        <div class="click-hint" id="hintText">Click Envelope to Open</div>
+        <!-- Glowing transition light overlay element -->
+        <div class="glow-flare" id="flare"></div>
     </div>
 
     <script>
-        for (let i = 0; i < 50; i++) {
-            let star = document.createElement('div');
-            star.className = 'star';
-            star.style.width = Math.random() * 3 + 'px';
-            star.style.height = star.style.width;
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(star);
-        }
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
 
-        function openEnvelope(element) {
-            if (!element.classList.contains('open')) {
-                element.classList.add('open');
+        function openEnvelope() {
+            const envelope = document.getElementById('envelope');
+            const banner = document.getElementById('banner');
+            const flare = document.getElementById('flare');
+            const music = document.getElementById('weddingMusic');
+            
+            if (!envelope.classList.contains('open')) {
+                // Instantly play music and save progress timestamp
+                if (music) {
+                    music.play().then(() => {
+                        setInterval(() => {
+                            localStorage.setItem('music_current_time', music.currentTime);
+                        }, 500);
+                    }).catch(error => console.log("Audio locked by browser:", error));
+                }
                 
-                // Instantly hide the bottom text hint to clean up layout focus
-                document.getElementById('hintText').style.opacity = '0';
+                envelope.classList.add('open');
+                banner.style.opacity = '0';
                 
-                sessionStorage.setItem('playMusicOnLoad', 'true');
+                // Alert the home page that the music is already running
+                localStorage.setItem('playMusicOnLoad', 'true');
                 
-                // Delays the container fade out slightly so guests can observe the folding flap action
+                // Trigger glow flare
                 setTimeout(() => {
-                    document.getElementById('mainContainer').classList.add('fade-out');
-                    
-                    // Smoothly fade out background stars in sync
-                    document.querySelectorAll('.star').forEach(star => {
-                        star.style.opacity = '0';
-                    });
-                }, 800);
+                    flare.classList.add('active');
+                }, 1000);
                 
-                // Executing page change exactly as the slow 2.5-second layout transition finishes
+                // Smooth transition redirect
                 setTimeout(() => {
                     window.location.href = 'home.html' + window.location.search;
-                }, 3300); // 800ms wait + 2500ms fade transition time
+                }, 2400);
             }
         }
     </script>
