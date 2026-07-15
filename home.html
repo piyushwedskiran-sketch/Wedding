@@ -197,7 +197,6 @@
     </div>
 
     <script>
-        // Directly mapped to your newest operational Web App URL deployment version
         const API = 'https://script.google.com/macros/s/AKfycbY0sRC1_es0jBRzyD6zUvf3wra8uh1gv0wjg3w1GHMsPG_Udsg5zu32C2viIWxsjNs/exec';
 
         document.addEventListener('touchmove', function (e) {
@@ -219,7 +218,7 @@
                         localStorage.setItem('music_current_time', music.currentTime);
                     }, 500);
                 }).catch(err => {
-                    console.log("Interaction required to resume music.");
+                    console.log("Audio requires interaction to play.");
                     document.body.addEventListener('click', () => {
                         music.play();
                     }, { once: true });
@@ -238,13 +237,10 @@
             }
 
             try {
-                // Appending a random query cache-breaker parameter directly onto the URL endpoint string
-                const cacheBuster = '&_cb=' + new Date().getTime();
-                
-                const response = await fetch(API + '?' + cacheBuster, {
+                // Fetch using POST to bypass strict CORS blocking rules on GET redirects
+                const response = await fetch(API, {
                     method: 'POST',
                     mode: 'cors',
-                    cache: 'no-store', // Instructs the browser engine to avoid looking at standard endpoint caches
                     headers: {
                         'Content-Type': 'text/plain'
                     },
