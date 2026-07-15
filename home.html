@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>Piyush & Kiran's Wedding Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -192,7 +197,8 @@
     </div>
 
     <script>
-        const API = 'https://script.google.com/macros/s/AKfycbzY0sRC1_es0jBRzyD6zUvf3wra8uh1gv0wjg3w1GHMsPG_Udsg5zu32C2viIWxsjNs/exec';
+        // Directly mapped to your newest operational Web App URL deployment version
+        const API = 'https://script.google.com/macros/s/AKfycbY0sRC1_es0jBRzyD6zUvf3wra8uh1gv0wjg3w1GHMsPG_Udsg5zu32C2viIWxsjNs/exec';
 
         document.addEventListener('touchmove', function (e) {
             e.preventDefault();
@@ -232,10 +238,20 @@
             }
 
             try {
-                // Fetching with strict redirect instruction
-                const response = await fetch(API + '?type=guest&code=' + encodeURIComponent(codeInput), {
-                    method: 'GET',
-                    redirect: 'follow'
+                // Appending a random query cache-breaker parameter directly onto the URL endpoint string
+                const cacheBuster = '&_cb=' + new Date().getTime();
+                
+                const response = await fetch(API + '?' + cacheBuster, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-store', // Instructs the browser engine to avoid looking at standard endpoint caches
+                    headers: {
+                        'Content-Type': 'text/plain'
+                    },
+                    body: JSON.stringify({ 
+                        action: 'login', 
+                        code: codeInput 
+                    })
                 });
                 
                 const data = await response.json();
