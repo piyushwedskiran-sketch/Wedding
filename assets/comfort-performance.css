@@ -1,0 +1,251 @@
+/* Final comfort pass: smooth mobile rendering, readable type, and emerald glass surfaces. */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body { overflow-x: hidden; }
+
+.invitation {
+  background-color: #123f36 !important;
+}
+
+/* Replace the pale welcome, login and RSVP cards with one calm jewel-tone language. */
+.auth-card,
+.invitation .hero-content,
+.invitation .rsvp-form {
+  color: #fff8e9 !important;
+  background:
+    linear-gradient(145deg, rgb(8 63 54 / 92%), rgb(20 89 71 / 84%) 53%, rgb(92 61 36 / 78%)) !important;
+  border-color: rgb(244 210 138 / 82%) !important;
+  box-shadow: 0 22px 54px rgb(16 43 35 / 34%), inset 0 1px 0 rgb(255 249 229 / 24%) !important;
+}
+
+.auth-card::before,
+.auth-card::after,
+.invitation .hero-content::before,
+.invitation .hero-content::after,
+.invitation .rsvp-form::before,
+.invitation .rsvp-form::after {
+  color: #f6d788 !important;
+  text-shadow: 0 0 16px rgb(255 222 133 / 46%);
+}
+
+.auth-card h1,
+.auth-card .auth-intro,
+.auth-card .wedding-date,
+.invitation .hero .request,
+.invitation .hero .hero-note,
+.invitation .rsvp h2,
+.invitation .rsvp .section-copy,
+.invitation .rsvp-form label,
+.invitation .rsvp-form #rsvpStatus {
+  color: #fff8e9 !important;
+  -webkit-text-fill-color: currentColor;
+  text-shadow: 0 1px 10px rgb(6 39 32 / 52%);
+}
+
+.auth-card .eyebrow,
+.auth-card .auth-divider span,
+.invitation .hero .personal,
+.invitation .rsvp .eyebrow,
+.invitation .rsvp-form label {
+  color: #f5d486 !important;
+}
+
+.auth-card .auth-divider { background: linear-gradient(90deg, transparent, #f4d18a, transparent) !important; }
+.auth-card .auth-divider span { background: #164c40 !important; }
+
+.invitation .hero h1 {
+  background: linear-gradient(130deg, #fffdf3, #f5cf75 47%, #fff7df 78%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 3px 18px rgb(9 51 42 / 66%) !important;
+}
+
+.auth-card input,
+.invitation .rsvp-form input,
+.invitation .rsvp-form select,
+.invitation .rsvp-form textarea {
+  background: rgb(255 251 239 / 92%) !important;
+  border-color: rgb(237 194 116 / 86%) !important;
+  color: #3e2b20 !important;
+  -webkit-text-fill-color: #3e2b20;
+}
+
+.auth-card input::placeholder,
+.invitation .rsvp-form input::placeholder,
+.invitation .rsvp-form textarea::placeholder { color: #806d5d !important; opacity: 1; }
+
+.auth-card .gold-button,
+.invitation .rsvp-form .gold-button {
+  background: linear-gradient(135deg, #f5d27f, #b87a36) !important;
+  color: #213e35 !important;
+  box-shadow: 0 5px 0 #78502b !important;
+}
+
+/* The itinerary title is now a compact, high-contrast glass plaque instead of a large white block. */
+.invitation .events > .eyebrow,
+.invitation .events > h2,
+.invitation .events > .section-copy {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  max-width: min(92vw, 720px);
+  margin-inline: auto;
+  color: #fff9ea !important;
+  background: linear-gradient(135deg, rgb(8 62 52 / 88%), rgb(27 88 70 / 82%)) !important;
+  border-inline: 1px solid rgb(245 211 139 / 70%);
+  text-shadow: 0 2px 13px rgb(4 35 28 / 72%);
+}
+
+.invitation .events > .eyebrow {
+  margin-bottom: 0 !important;
+  padding: 16px 28px 6px;
+  border-radius: 28px 28px 0 0;
+  color: #f6d889 !important;
+}
+
+.invitation .events > h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 28px 10px;
+  font-size: clamp(2.45rem, 7.5vw, 4.4rem) !important;
+  line-height: .98 !important;
+  overflow-wrap: anywhere;
+}
+
+.invitation .events > .section-copy {
+  margin-top: 0 !important;
+  margin-bottom: 26px !important;
+  padding: 0 28px 17px;
+  border-radius: 0 0 28px 28px;
+  font-size: clamp(.86rem, 2.5vw, 1rem) !important;
+  line-height: 1.55 !important;
+}
+
+/* A polished, readable sign-off. */
+.invitation footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 76px 20px 54px !important;
+  background:
+    radial-gradient(circle at 50% 0, rgb(231 183 94 / 22%), transparent 42%),
+    linear-gradient(145deg, #082c27, #164d3f 48%, #263d30) !important;
+  border-top: 1px solid rgb(244 209 134 / 62%);
+}
+
+.invitation footer::before {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  z-index: -1;
+  border: 1px solid rgb(245 215 151 / 48%);
+  border-radius: 50% 50% 16px 16px;
+  opacity: .82;
+}
+
+.invitation footer p {
+  margin: 0 !important;
+  color: #fff0bd !important;
+  font: 400 clamp(3.35rem, 10vw, 5.8rem) / .86 'Allura', 'Great Vibes', cursive !important;
+  letter-spacing: .015em;
+  text-shadow: 0 2px 19px rgb(4 31 26 / 78%);
+}
+
+.invitation footer p i { color: #e1b75f !important; font-size: .65em; }
+
+.invitation footer small {
+  display: block;
+  margin-top: 18px;
+  color: #ffedc7 !important;
+  font: 500 clamp(.72rem, 2.4vw, .9rem) / 1.55 'DM Sans', sans-serif !important;
+  letter-spacing: .08em;
+  text-shadow: 0 1px 9px rgb(4 31 26 / 72%);
+}
+
+/* Mobile: stop repaint-heavy background movement and retain an intentional static palace scene. */
+@media (max-width: 760px), (pointer: coarse) {
+  .invitation::before,
+  .invitation::after {
+    position: absolute !important;
+    inset: 0 !important;
+    animation: none !important;
+    background-attachment: scroll !important;
+    will-change: auto !important;
+  }
+
+  .invitation::after {
+    background-position: center top !important;
+    background-size: auto 100svh !important;
+    background-repeat: repeat-y !important;
+    filter: saturate(1.03) contrast(1.02) brightness(.7) !important;
+  }
+
+  #snow { display: none !important; }
+
+  .invitation .hero-content,
+  .invitation .rsvp-form,
+  .auth-card,
+  .invitation .events > .eyebrow,
+  .invitation .events > h2,
+  .invitation .events > .section-copy {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .invitation .events::before,
+  .event.event-card,
+  .event.event-card::before,
+  .event.event-card::after,
+  .invitation .hero-content,
+  .invitation .rsvp-form {
+    animation: none !important;
+  }
+
+  .event.event-card::before,
+  .event.event-card::after { display: none !important; }
+}
+
+/* Larger phone text should reflow instead of overflowing or becoming clipped. */
+@media (max-width: 620px) {
+  .invitation .events,
+  .invitation .rsvp { padding-inline: 14px !important; }
+
+  .invitation .events > .eyebrow,
+  .invitation .events > h2,
+  .invitation .events > .section-copy {
+    max-width: calc(100vw - 28px);
+    overflow-wrap: anywhere;
+  }
+
+  .invitation .events > .eyebrow { padding: 14px 18px 5px; }
+  .invitation .events > h2 { padding: 0 18px 9px; font-size: clamp(2.18rem, 10vw, 3.2rem) !important; }
+  .invitation .events > .section-copy { padding: 0 18px 15px; margin-bottom: 20px !important; }
+
+  .invitation .hero-content,
+  .auth-card,
+  .invitation .rsvp-form {
+    width: min(100%, calc(100vw - 28px)) !important;
+    padding: 32px 18px 28px !important;
+    border-radius: 28px !important;
+  }
+
+  .invitation .hero h1 { font-size: clamp(3.8rem, 17vw, 5.45rem) !important; line-height: .72 !important; }
+  .auth-card h1 { font-size: clamp(2.2rem, 10vw, 3.1rem) !important; line-height: 1 !important; overflow-wrap: anywhere; }
+  .invitation .hero .request,
+  .invitation .hero .hero-note,
+  .auth-card .auth-intro,
+  .invitation .rsvp .section-copy { font-size: .9rem !important; line-height: 1.55 !important; }
+
+  .event.event-card { min-height: 0 !important; height: auto !important; }
+  .event-details h3 { overflow-wrap: anywhere; }
+  .event-place { overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
