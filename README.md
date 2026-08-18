@@ -1,12 +1,12 @@
 # Piyush weds Kiran
 
-Final mobile-first wedding website for **www.piyushwedskiran.com**, built for GitHub Pages. It has a cinematic royal welcome, strict six-digit invitation PIN lookup, personalised event itinerary, music controls, countdown, venue directions and editable RSVP.
+Final mobile-first wedding website for **www.piyushwedskiran.com**, built for GitHub Pages. Its **Grand Reveal** design begins behind wine-coloured silk curtains in a royal palace, then opens into a gold-framed cinematic invitation, private PIN access, guest invitation, celebration cards, couple's story and RSVP—without changing the live guest service.
 
-The website begins with an original, full-screen royal wedding opening, followed by an animated PIN login. Once verified, each guest sees only the events selected for them, with the time, venue, address and a directions link for each event.
+The website begins with a full-screen curtain reveal; music starts only when the curtains are drawn. Once verified, each guest sees only the events selected for them, with the time, venue, address and a directions link for each event.
 
 ## Before publishing
 
-1. Put the licensed audio track at `music/wedding.mp3` (the file is intentionally not included).
+1. The project includes `music/wedding.mp3`. Replace it with your licensed final track only if you want to change the music.
 2. Create a Google Sheet. Open **Extensions → Apps Script**, replace the starter code with `backend/Code.gs`, save, and run `setupGuestSheet` once. Approve Google’s permissions.
 3. In its `Guests` tab, add your guests under the headers created by the script. PIN cells must be formatted as **Plain text** so leading zeroes are preserved. Use `TRUE` / `FALSE` for every event column. `Venue Name`, `Venue Address`, and `Directions URL` are optional and may be shared by all guests.
 4. In Apps Script, choose **Deploy → New deployment → Web app**. Set “Execute as” to **Me** and “Who has access” to **Anyone**, then deploy. Copy the `/exec` URL.

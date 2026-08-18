@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#100b0b">
+    <meta name="description" content="The wedding celebrations of Piyush and Kiran — 10 to 12 December 2026.">
+    <title>Piyush &amp; Kiran — The Grand Reveal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,ital,wght@6..96,0,400;6..96,0,500;6..96,0,600;6..96,1,400;6..96,1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Marcellus&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/rebuild.css?v=grand-reveal-3">
+  </head>
+  <body>
+    <audio id="weddingMusic" preload="metadata" loop>
+      <source src="music/wedding.mp3" type="audio/mpeg">
+    </audio>
+    <canvas id="snow" aria-hidden="true"></canvas>
+    <canvas id="fireworks" aria-hidden="true"></canvas>
+
+    <button id="soundButton" class="sound-button hidden" type="button" aria-label="Play music">
+      <span aria-hidden="true">♫</span><i>Music</i>
+    </button>
+
+    <section id="openingScreen" class="screen reveal-page opening-screen" aria-label="Wedding invitation introduction">
+      <main class="reveal-stage">
+        <div class="ambient-lanterns" aria-hidden="true"><span class="lantern"></span><span class="lantern"></span><span class="lantern"></span></div>
+        <div class="reveal-silks" aria-hidden="true">
+          <span class="reveal-silk left"></span>
+          <span class="reveal-silk right"></span>
+        </div>
+        <article id="openingMessage" class="reveal-invitation opening-card">
+          <p class="eyebrow">An evening of rituals &amp; new beginnings</p>
+          <div class="reveal-rule" aria-hidden="true"><span>✦</span></div>
+          <div class="display-names" aria-label="Piyush and Kiran">
+            <strong>Piyush</strong>
+            <span class="amp">and</span>
+            <strong>Kiran</strong>
+          </div>
+          <p class="event-date">10 — 12 December 2026</p>
+          <p class="reveal-copy">A three-day celebration where loved ones gather, laughter lingers, and a new chapter begins.</p>
+          <div class="reveal-actions">
+            <button id="continueJourney" class="action-button" type="button"><span>Draw the curtains</span><b aria-hidden="true">→</b></button>
+            <span class="reveal-hint">Tap once to begin the reveal</span>
+          </div>
+        </article>
+      </main>
+    </section>
+
+    <section id="authScreen" class="screen reveal-page auth-screen hidden" aria-label="Open your invitation">
+      <div class="ambient-lanterns" aria-hidden="true"><span class="lantern"></span><span class="lantern"></span><span class="lantern"></span></div>
+      <div class="screen-shell">
+        <div class="screen-intro">
+          <p class="eyebrow">The wedding celebrations of</p>
+          <p class="top-names">Piyush <span>&amp;</span> Kiran</p>
+        </div>
+        <article class="reveal-invitation login-card">
+          <p class="eyebrow">A reserved place at our celebration</p>
+          <div class="reveal-rule" aria-hidden="true"><span>✦</span></div>
+          <h1>Open your<br><em>invitation</em></h1>
+          <p class="login-copy">Your personal invitation awaits behind a six-digit code.</p>
+          <form id="pinForm" class="pin-form" novalidate>
+            <label for="pin">Invitation code</label>
+            <input id="pin" name="pin" type="text" inputmode="numeric" pattern="[0-9]{6}" autocomplete="one-time-code" maxlength="6" placeholder="Enter six digits" aria-describedby="authError">
+            <button class="action-button" type="submit"><span>Open my invitation</span><b aria-hidden="true">→</b></button>
+            <p id="authError" class="form-message" role="alert" aria-live="polite"></p>
+          </form>
+          <div class="mini-countdown" aria-label="Countdown to wedding celebrations">
+            <p>Counting down to forever</p>
+            <div id="landingCountdown">
+              <span><b>00</b><small>Days</small></span>
+              <span><b>00</b><small>Hours</small></span>
+              <span><b>00</b><small>Minutes</small></span>
+              <span><b>00</b><small>Seconds</small></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <main id="invitation" class="invitation reveal-page hidden" aria-live="polite">
+      <div class="ambient-lanterns invitation-lanterns" aria-hidden="true"><span class="lantern"></span><span class="lantern"></span><span class="lantern"></span></div>
+      <section class="guest-hero cinema-section">
+        <div class="screen-shell">
+          <article class="reveal-invitation personal-card">
+            <p class="eyebrow">With the blessings of our families</p>
+            <div class="reveal-rule" aria-hidden="true"><span>✦</span></div>
+            <p id="personalGreeting" class="personal-greeting">Dear Guest</p>
+            <p class="guest-invite-copy">We are honoured to invite you to join the wedding celebrations of</p>
+            <div class="display-names smaller" aria-label="Piyush and Kiran">
+              <strong>Piyush</strong>
+              <span class="amp">and</span>
+              <strong>Kiran</strong>
+            </div>
+            <p class="event-date">10 — 12 December 2026</p>
+            <p class="reveal-copy">Your invitation has been prepared with love. We cannot wait to celebrate with you.</p>
+            <a class="action-button scroll-link" href="#celebrations"><span>Explore your celebrations</span><b aria-hidden="true">↓</b></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="countdown-band cinema-section" aria-labelledby="countdown-title">
+        <div class="section-heading compact">
+          <p class="eyebrow">The celebration begins in</p>
+          <h2 id="countdown-title">Every moment<br><em>draws closer</em></h2>
+        </div>
+        <div id="countdown" class="grand-countdown" aria-label="Countdown to 12 December 2026 at 6 PM">
+          <span><b>00</b><small>Days</small></span>
+          <span><b>00</b><small>Hours</small></span>
+          <span><b>00</b><small>Minutes</small></span>
+          <span><b>00</b><small>Seconds</small></span>
+        </div>
+      </section>
+
+      <section id="celebrations" class="celebrations cinema-section" aria-labelledby="celebrations-title">
+        <header class="section-heading">
+          <p class="eyebrow">Your invitation itinerary</p>
+          <h2 id="celebrations-title">Your <em>celebrations</em></h2>
+          <p>Every gathering chosen for you is detailed below. We look forward to sharing each beautiful moment.</p>
+        </header>
+        <div id="eventList" class="event-list"></div>
+      </section>
+
+      <section class="story-section cinema-section" aria-labelledby="story-title">
+        <div class="story-layout">
+          <header class="section-heading story-heading">
+            <p class="eyebrow">A story, written together</p>
+            <h2 id="story-title">From friendship<br>to <em>forever</em></h2>
+            <p>One shared path, many milestones, and a promise to keep choosing each other.</p>
+          </header>
+          <ol class="story-timeline">
+            <li><time>2015</time><div><h3>It began in MSc</h3><p>We met during our MSc and soon became friends.</p></div></li>
+            <li><time>2017</time><div><h3>She said yes</h3><p>On the last exam of our fourth semester, friendship became something more.</p></div></li>
+            <li><time>2019</time><div><h3>A shared pursuit</h3><p>We enrolled in our PhDs together and kept growing side by side.</p></div></li>
+            <li><time>2024</time><div><h3>Vietnam &amp; the Roka</h3><p>A proposal in Vietnam, followed by our Roka in November.</p></div></li>
+            <li><time>2025</time><div><h3>Two doctorates</h3><p>We earned our doctorates together — another dream, fulfilled as a team.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="rsvp-section cinema-section" aria-labelledby="rsvp-title">
+        <div class="rsvp-intro">
+          <p class="eyebrow">Kindly respond</p>
+          <h2 id="rsvp-title">Will you join<br><em>our celebration?</em></h2>
+          <p>Your response helps us prepare a beautiful celebration for you.</p>
+        </div>
+        <article class="reveal-invitation rsvp-card">
+          <form id="rsvpForm">
+            <div class="form-field wide">
+              <label for="attending">Will you be joining us?</label>
+              <select id="attending" name="attending" required>
+                <option value="">Select your response</option>
+                <option value="yes">With joy, I will attend</option>
+                <option value="no">With regret, I will not be able to attend</option>
+              </select>
+            </div>
+            <div class="form-field wide">
+              <label for="rsvpName">Name</label>
+              <input id="rsvpName" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div id="attendanceDetails" class="attendance-details">
+              <div class="form-field">
+                <label for="arrivalDate">Date of arrival</label>
+                <input id="arrivalDate" name="arrivalDate" type="date">
+              </div>
+              <div class="form-field">
+                <label for="guests">Number of people</label>
+                <input id="guests" name="guests" type="number" min="1" max="20" inputmode="numeric">
+              </div>
+              <fieldset class="meal-field">
+                <legend>Meal preference</legend>
+                <div class="meal-options">
+                  <label class="meal-option veg"><input type="radio" name="mealPreference" value="Veg"><span><i aria-hidden="true"></i>Veg</span></label>
+                  <label class="meal-option nonveg"><input type="radio" name="mealPreference" value="Non-veg"><span><i aria-hidden="true"></i>Non-veg</span></label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="form-field wide">
+              <label for="message">Message for the couple</label>
+              <textarea id="message" name="message" rows="4" placeholder="Share your wishes…"></textarea>
+            </div>
+            <button class="action-button submit-rsvp" type="submit"><span>Send RSVP</span><b aria-hidden="true">→</b></button>
+          </form>
+          <div class="rsvp-actions">
+            <button id="editRsvp" class="text-button hidden" type="button">Edit my RSVP</button>
+            <button id="clearRsvp" class="text-button hidden" type="button">Clear my RSVP</button>
+          </div>
+          <p id="rsvpStatus" class="form-message status-message" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <footer class="site-footer cinema-section">
+        <p class="footer-names">Piyush <span>&amp;</span> Kiran</p>
+        <p>With love and gratitude, we look forward to celebrating with you.</p>
+      </footer>
+    </main>
+
+    <script src="assets/app.js?v=grand-reveal-3" defer></script>
+  </body>
+</html>
