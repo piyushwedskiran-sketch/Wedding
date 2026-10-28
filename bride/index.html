@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f7f1e5">
+    <meta name="description" content="Celebrate the wedding of Kiran and Piyush — 10 to 12 December 2026.">
+    <title>Kiran weds Piyush — A Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,ital,wght@6..96,0,400;6..96,0,500;6..96,0,600;6..96,1,400;6..96,1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Marcellus&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/rebuild.css?v=mobile-story-8">
+    <link rel="stylesheet" href="../assets/door-entrance.css?v=mobile-story-8">
+    <link rel="stylesheet" href="../assets/ivory-celebrations.css?v=mobile-story-8">
+    <link rel="stylesheet" href="../assets/final-refinements.css?v=mobile-story-8">
+    <link rel="stylesheet" href="../assets/couple-and-numerals.css?v=mobile-story-8">
+    <link rel="stylesheet" href="../assets/story-garden.css?v=mobile-story-8">
+  </head>
+  <body data-invitation-side="bride">
+    <audio id="weddingMusic" preload="metadata" loop>
+      <source src="../music/wedding.mp3" type="audio/mpeg">
+    </audio>
+    <canvas id="snow" aria-hidden="true"></canvas>
+    <canvas id="fireworks" aria-hidden="true"></canvas>
+
+    <button id="soundButton" class="sound-button hidden" type="button" aria-label="Play music">
+      <span aria-hidden="true">♫</span><i>Music</i>
+    </button>
+
+    <section id="openingScreen" class="screen opening-screen door-entrance" aria-label="Wedding invitation introduction">
+      <div class="door-surround" aria-hidden="true"></div>
+      <div class="invitation-doors" aria-hidden="true">
+        <div class="door-leaf door-left"><span class="door-border"></span></div>
+        <div class="door-leaf door-right"><span class="door-border"></span></div>
+      </div>
+      <div class="envelope-shower" aria-hidden="true">
+        <span class="falling-blossom" style="--x:7%;--delay:-0.0s;--duration:13s;--drift:-52px;--size:14px;--spin:180deg"></span>
+        <span class="falling-blossom" style="--x:44%;--delay:-1.7s;--duration:16s;--drift:-26px;--size:21px;--spin:209deg"></span>
+        <span class="falling-blossom" style="--x:81%;--delay:-3.4s;--duration:19s;--drift:0px;--size:15px;--spin:238deg"></span>
+        <span class="falling-blossom" style="--x:18%;--delay:-5.1s;--duration:13s;--drift:26px;--size:22px;--spin:267deg"></span>
+        <span class="falling-blossom" style="--x:55%;--delay:-6.8s;--duration:16s;--drift:52px;--size:16px;--spin:296deg"></span>
+        <span class="falling-blossom" style="--x:92%;--delay:-8.5s;--duration:19s;--drift:-52px;--size:23px;--spin:325deg"></span>
+        <span class="falling-blossom" style="--x:29%;--delay:-10.2s;--duration:13s;--drift:-26px;--size:17px;--spin:354deg"></span>
+        <span class="falling-blossom" style="--x:66%;--delay:-11.9s;--duration:16s;--drift:0px;--size:24px;--spin:383deg"></span>
+        <span class="falling-blossom" style="--x:3%;--delay:-13.6s;--duration:19s;--drift:26px;--size:18px;--spin:412deg"></span>
+        <span class="falling-blossom" style="--x:40%;--delay:-15.3s;--duration:13s;--drift:52px;--size:25px;--spin:441deg"></span>
+        <span class="falling-blossom" style="--x:77%;--delay:-17.0s;--duration:16s;--drift:-52px;--size:19px;--spin:470deg"></span>
+        <span class="falling-blossom" style="--x:14%;--delay:-18.7s;--duration:19s;--drift:-26px;--size:26px;--spin:499deg"></span>
+        <span class="falling-blossom" style="--x:51%;--delay:-20.4s;--duration:13s;--drift:0px;--size:20px;--spin:528deg"></span>
+        <span class="falling-blossom" style="--x:88%;--delay:-22.1s;--duration:16s;--drift:26px;--size:14px;--spin:557deg"></span>
+        <span class="falling-blossom" style="--x:25%;--delay:-23.8s;--duration:19s;--drift:52px;--size:21px;--spin:586deg"></span>
+        <span class="falling-blossom" style="--x:62%;--delay:-25.5s;--duration:13s;--drift:-52px;--size:15px;--spin:615deg"></span>
+        <span class="falling-blossom" style="--x:99%;--delay:-27.2s;--duration:16s;--drift:-26px;--size:22px;--spin:644deg"></span>
+        <span class="falling-blossom" style="--x:36%;--delay:-28.9s;--duration:19s;--drift:0px;--size:16px;--spin:673deg"></span>
+        <span class="falling-blossom" style="--x:73%;--delay:-30.6s;--duration:13s;--drift:26px;--size:23px;--spin:702deg"></span>
+        <span class="falling-blossom" style="--x:10%;--delay:-32.3s;--duration:16s;--drift:52px;--size:17px;--spin:731deg"></span>
+        <span class="envelope-glint" style="--x:13%;--y:7%;--delay:-0.0s;--duration:4s"></span>
+        <span class="envelope-glint" style="--x:42%;--y:30%;--delay:-0.6s;--duration:5s"></span>
+        <span class="envelope-glint" style="--x:71%;--y:53%;--delay:-1.2s;--duration:6s"></span>
+        <span class="envelope-glint" style="--x:0%;--y:76%;--delay:-1.8s;--duration:7s"></span>
+        <span class="envelope-glint" style="--x:29%;--y:4%;--delay:-2.4s;--duration:4s"></span>
+        <span class="envelope-glint" style="--x:58%;--y:27%;--delay:-3.0s;--duration:5s"></span>
+        <span class="envelope-glint" style="--x:87%;--y:50%;--delay:-3.6s;--duration:6s"></span>
+        <span class="envelope-glint" style="--x:16%;--y:73%;--delay:-4.2s;--duration:7s"></span>
+        <span class="envelope-glint" style="--x:45%;--y:1%;--delay:-4.8s;--duration:4s"></span>
+        <span class="envelope-glint" style="--x:74%;--y:24%;--delay:-5.4s;--duration:5s"></span>
+        <span class="envelope-glint" style="--x:3%;--y:47%;--delay:-6.0s;--duration:6s"></span>
+        <span class="envelope-glint" style="--x:32%;--y:70%;--delay:-6.6s;--duration:7s"></span>
+      </div>
+      <main id="openingMessage" class="entrance-content">
+        <header class="entrance-heading">
+          <img class="ganpati-art envelope-ganpati" src="../assets/ganpati.png" alt="Lord Ganesha" width="96" height="112" decoding="async">
+          <p class="entrance-eyebrow">Two hearts, one beautiful beginning.</p>
+          <p class="entrance-intro">Join us as we celebrate our wedding.</p>
+        </header>
+        <h1 class="entrance-names" aria-label="Kiran weds Piyush">
+          <span>Kiran</span><em>weds</em><span>Piyush</span>
+        </h1>
+        <div class="entrance-action">
+          <button id="continueJourney" class="seal-button" type="button" aria-label="Open the wedding invitation" aria-controls="authScreen" aria-describedby="openingHint">
+            <span class="wax-seal" aria-hidden="true"><span class="seal-monogram">KP</span><span class="seal-sprig">❧</span><span class="seal-gloss"></span></span>
+            <span class="seal-caption">Open invitation <span aria-hidden="true">↗</span></span>
+          </button>
+          <p id="openingHint" class="entrance-hint">Tap the seal to open · music awaits inside</p>
+        </div>
+        <footer class="entrance-footer">
+          <span class="entrance-line" aria-hidden="true"></span>
+          <p>10 <span>—</span> 12 December 2026</p>
+          <span class="entrance-line" aria-hidden="true"></span>
+        </footer>
+      </main>
+      <p id="openingStatus" class="visually-hidden" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="authScreen" class="screen reveal-page auth-screen hidden" aria-label="Open your invitation">
+      <div class="ambient-lanterns" aria-hidden="true"><span class="lantern"></span><span class="lantern"></span><span class="lantern"></span></div>
+      <div class="screen-shell">
+        <div class="screen-intro">
+          <p class="eyebrow">A celebration of love and togetherness</p>
+          <p class="top-names">Kiran <span>weds</span> Piyush</p>
+        </div>
+        <article class="reveal-invitation login-card">
+          <p class="eyebrow">A reserved place at our celebration</p>
+          <div class="reveal-rule" aria-hidden="true"><span>✦</span></div>
+          <h1>Open your<br><em>invitation</em></h1>
+          <p class="login-copy">Your personal invitation awaits behind a six-digit code.</p>
+          <form id="pinForm" class="pin-form" novalidate>
+            <label for="pin">Invitation code</label>
+            <input id="pin" name="pin" type="text" inputmode="numeric" pattern="[0-9]{6}" autocomplete="one-time-code" maxlength="6" placeholder="Enter six digits" aria-describedby="authError">
+            <button class="action-button" type="submit"><span>Open my invitation</span><b aria-hidden="true">→</b></button>
+            <p id="authError" class="form-message" role="alert" aria-live="polite"></p>
+          </form>
+          <div class="mini-countdown" aria-label="Countdown to wedding celebrations">
+            <p>Counting down to forever</p>
+            <div id="landingCountdown">
+              <span><b>00</b><small>Days</small></span>
+              <span><b>00</b><small>Hours</small></span>
+              <span><b>00</b><small>Minutes</small></span>
+              <span><b>00</b><small>Seconds</small></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <main id="invitation" class="invitation reveal-page hidden" aria-live="polite">
+      <div class="ambient-lanterns invitation-lanterns" aria-hidden="true"><span class="lantern"></span><span class="lantern"></span><span class="lantern"></span></div>
+      <section class="guest-hero cinema-section">
+        <div class="screen-shell">
+          <article class="reveal-invitation personal-card">
+            <img class="ganpati-art invitation-ganpati" src="../assets/ganpati.png" alt="Lord Ganesha" width="96" height="112" loading="lazy" decoding="async">
+            <p class="eyebrow">With the blessings of our families</p>
+            <div class="reveal-rule" aria-hidden="true"><span>✦</span></div>
+            <p id="personalGreeting" class="personal-greeting">Dear Guest</p>
+            <p class="guest-invite-copy">With love and joy, we invite you to join us as we begin our forever.</p>
+            <div class="personal-identity">
+            <div class="display-names smaller">
+              <strong>Kiran</strong>
+              <span class="parent-names">(D/o Smt. Sita Chauhan and <br>Late Sh. Balbir Singh Chauhan)</span>
+              <span class="amp">weds</span>
+              <strong>Piyush</strong>
+              <span class="parent-names">(S/o Smt. Savita Bhalla and <br>Sh. Arvinder Bhalla)</span>
+            </div>
+              <div class="couple-portrait animated-portrait" aria-hidden="true">
+                <span class="couple-halo"></span>
+                <img src="../assets/couple-wedding-attire.png" alt="" width="512" height="768" loading="lazy" decoding="async">
+                <span class="couple-spark couple-spark-one">✧</span><span class="couple-spark couple-spark-two">✦</span>
+              </div>
+            </div>
+            <p class="event-date">10 — 12 December 2026</p>
+            <p class="reveal-copy">Your invitation has been prepared with love. We cannot wait to celebrate with you.</p>
+            <a class="action-button scroll-link" href="#celebrations"><span>View event details</span><b aria-hidden="true">↓</b></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="countdown-band cinema-section" aria-labelledby="countdown-title">
+        <div class="section-heading compact">
+          <h2 id="countdown-title">Every moment<br><em>draws closer</em></h2>
+          <p class="eyebrow countdown-caption">The celebration begins in…</p>
+        </div>
+        <div id="countdown" class="grand-countdown" aria-label="Countdown to 12 December 2026 at 9 PM">
+          <span><b>00</b><small>Days</small></span>
+          <span><b>00</b><small>Hours</small></span>
+          <span><b>00</b><small>Minutes</small></span>
+          <span><b>00</b><small>Seconds</small></span>
+        </div>
+      </section>
+
+      <section id="celebrations" class="celebrations cinema-section" aria-labelledby="celebrations-title">
+        <header class="section-heading">
+          <p class="eyebrow">Your invitation itinerary</p>
+          <h2 id="celebrations-title">The Wedding <em>Festivities</em></h2>
+          <p>A little colour, a little music, and so much love. Here are the celebrations we look forward to sharing with you.</p>
+        </header>
+        <div id="eventList" class="event-list"></div>
+      </section>
+
+      <section class="story-section cinema-section" aria-labelledby="story-title">
+        <div class="story-layout">
+          <header class="section-heading story-heading">
+            <div class="story-emblem" aria-hidden="true"><svg viewBox="0 0 160 90" xmlns="http://www.w3.org/2000/svg"><circle cx="62" cy="46" r="26"/><circle cx="98" cy="46" r="26"/><path d="M80 9L83 17L91 20L83 23L80 31L77 23L69 20L77 17ZM17 47H29M131 47H143M25 38L31 42M25 56L31 52M129 42L135 38M129 52L135 56"/></svg></div>
+            <p class="eyebrow">Our story, through my eyes</p>
+            <h2 id="story-title">From friendship<br>to <em>forever</em></h2>
+            <p>From meeting Piyush to building our dreams together—these are the moments that brought us here.</p>
+          </header>
+          <ol class="story-timeline">
+            <li class="story-chapter">
+              <figure class="chapter-scene animated-portrait"><img src="../assets/story-2015.jpg?v=mobile-story-8" alt="Piyush and Kiran as cartoon students with books in a leafy university courtyard" width="1536" height="1024" loading="eager" decoding="async"></figure>
+              <div class="chapter-copy"><time datetime="2015">2015</time><h3>It began in MSc</h3><p>I met Piyush during our MSc, and we soon became friends.</p></div>
+            </li>
+            <li class="story-chapter">
+              <figure class="chapter-scene animated-portrait"><img src="../assets/story-2017.jpg?v=mobile-story-8" alt="The cartoon couple holding hands on a university walkway after their exams" width="1536" height="1024" loading="eager" decoding="async"></figure>
+              <div class="chapter-copy"><time datetime="2017">2017</time><h3>The beginning of us</h3><p>On the day of our last MSc exam, we took the next step from friendship into a committed relationship.</p></div>
+            </li>
+            <li class="story-chapter">
+              <figure class="chapter-scene animated-portrait"><img src="../assets/story-2019.jpg?v=mobile-story-8" alt="The cartoon couple studying together in a warm university library" width="1536" height="1024" loading="eager" decoding="async"></figure>
+              <div class="chapter-copy"><time datetime="2019">2019</time><h3>Growing together</h3><p>Piyush and I enrolled in our PhDs together, continuing to learn and grow side by side.</p></div>
+            </li>
+            <li class="story-chapter">
+              <figure class="chapter-scene animated-portrait"><img src="../assets/story-2024.jpg?v=mobile-story-8" alt="The cartoon couple celebrating their promise in a Vietnamese lantern garden" width="1536" height="1024" loading="eager" decoding="async"></figure>
+              <div class="chapter-copy"><time datetime="2024">2024</time><h3>A promise in Vietnam</h3><p>A proposal in Vietnam began our next chapter, followed by our Roka in November.</p></div>
+            </li>
+            <li class="story-chapter">
+              <figure class="chapter-scene animated-portrait"><img src="../assets/story-2025.jpg?v=mobile-story-8" alt="The cartoon couple in doctoral gowns holding diplomas on a university lawn" width="1536" height="1024" loading="eager" decoding="async"></figure>
+              <div class="chapter-copy"><time datetime="2025">2025</time><h3>A dream we shared</h3><p>We earned our doctorates together—another shared dream, and a milestone I will always treasure.</p></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="rsvp-section cinema-section" aria-labelledby="rsvp-title">
+        <div class="rsvp-intro">
+          <p class="eyebrow">Kindly respond</p>
+          <h2 id="rsvp-title">We Look Forward to<br><em>Celebrating With You</em></h2>
+          <p>Your response helps us prepare a beautiful celebration for you.</p>
+        </div>
+        <article class="reveal-invitation rsvp-card">
+          <form id="rsvpForm">
+            <div class="form-field wide">
+              <label for="attending">Will you be joining us?</label>
+              <select id="attending" name="attending" required>
+                <option value="">Select your response</option>
+                <option value="yes">With joy, I will attend</option>
+                <option value="no">With regret, I will not be able to attend</option>
+              </select>
+            </div>
+            <div class="form-field wide">
+              <label for="rsvpName">Name</label>
+              <input id="rsvpName" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div id="attendanceDetails" class="attendance-details">
+              <div class="form-field">
+                <label for="arrivalDate">Date of arrival</label>
+                <input id="arrivalDate" name="arrivalDate" type="date">
+              </div>
+              <div class="form-field">
+                <label for="guests">Number of people</label>
+                <input id="guests" name="guests" type="number" min="1" max="20" inputmode="numeric">
+              </div>
+              <fieldset class="meal-field">
+                <legend>Meal preference</legend>
+                <div class="meal-options">
+                  <label class="meal-option veg"><input type="radio" name="mealPreference" value="Veg"><span><i aria-hidden="true"></i>Veg</span></label>
+                  <label class="meal-option nonveg"><input type="radio" name="mealPreference" value="Non-veg"><span><i aria-hidden="true"></i>Non-veg</span></label>
+                </div>
+              </fieldset>
+            </div>
+            <div class="form-field wide">
+              <label for="message">Message for the couple</label>
+              <textarea id="message" name="message" rows="4" placeholder="Share your wishes…"></textarea>
+            </div>
+            <button class="action-button submit-rsvp" type="submit"><span>Send RSVP</span><b aria-hidden="true">→</b></button>
+          </form>
+          <div class="rsvp-actions">
+            <button id="editRsvp" class="text-button hidden" type="button">Edit my RSVP</button>
+            <button id="clearRsvp" class="text-button hidden" type="button">Clear my RSVP</button>
+          </div>
+          <p id="rsvpStatus" class="form-message status-message" aria-live="polite"></p>
+        </article>
+      </section>
+
+      <footer class="site-footer cinema-section">
+        <p class="footer-names">Kiran <span>weds</span> Piyush</p>
+        <p>With love and gratitude, we look forward to celebrating with you.</p>
+      </footer>
+    </main>
+
+    <script src="../assets/event-designs.js?v=mobile-story-8" defer></script>
+    <script src="../assets/app.js?v=mobile-story-8" defer></script>
+  </body>
+</html>
