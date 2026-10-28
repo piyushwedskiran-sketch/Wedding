@@ -20,12 +20,25 @@ in…**. Both countdowns target **12 December 2026 at 9:00 PM IST**.
 Animations respect reduced-motion preferences. Card illustrations pause when
 out of view; the envelope effects stop when the cover closes out of view.
 
-The personalised artwork is used only beside the invitation names and in the
-Our Story portrait pair. The invitation uses an ivory-and-plum wedding-outfit
-variation; the story keeps the approved front and back poses in the original
-clothes. No side pose is included. Portraits move gently only while visible and
-respect reduced-motion preferences. Clear upright numerals are used for dates,
-times and countdowns. See `ARTWORK.md` for image details and prompts.
+The envelope and personal invitation feature a Ganpati image. Each name on the
+personal invitation is followed by the parent names supplied by the couple.
+The guest greeting uses Marcellus in a larger upright style (52 px on wide screens,
+34–40 px on phones), with wrapping for long guest names.
+
+The Wedding Festivities appear against a subtle champagne-and-sage background,
+with a softly faded garden detail at the top. The existing event cards retain their individual
+colours and illustrations. The RSVP heading is **We Look Forward to Celebrating
+With You**.
+
+Our Story now has five illustrated chapters (2015, 2017, 2019, 2024 and 2025).
+Each cartoon scene is integrated into its matching milestone card. Both pages
+use the same images; the bride page tells the story from Kiran's perspective.
+Her 2017 chapter is **The beginning of us**: “On the day of our last MSc exam, we took the next step from friendship into a committed relationship.”
+The scenes are artistic interpretations, not documentary pictures of the
+actual locations. The old standalone portrait pair is no longer displayed.
+Animations pause out of view and respect reduced-motion preferences. Clear
+upright numerals are used for dates, times and countdowns. See `CURRENT-ARTWORK.md` for
+current image details and prompts.
 
 ## Confirmed event details
 
@@ -50,7 +63,7 @@ times and countdowns. See `ARTWORK.md` for image details and prompts.
 | Haldi | 12 December 2026 | 7:00 AM | The Kutumb Cafe & Restro — FQMR+V5, Vikasnagar, Uttarakhand |
 | Wedding | 12 December 2026 | 9:00 PM | Annfield Lawn by Monga Tent House |
 
-The café and Wedding cards include directions. Both Wedding invitations use the same Annfield Lawn venue. Bridal Haldi is **7 AM at the café**;
+The café and Wedding cards include directions. Both Wedding invitations use the same Annfield Lawn venue and address: **FQ67+72R, Kotwali Bypass Rd, Fatehpur, Vikasnagar, Uttarakhand 248198**. Bridal Haldi is **7 AM at the café**;
 the earlier residence plan is superseded.
 
 ## Clothing notes
@@ -124,7 +137,10 @@ settings and custom domain. `/bride` redirects to `/bride/` on GitHub Pages.
 - `assets/ivory-celebrations.css`: jewel colours, type and event-card design.
 - `assets/final-refinements.css`: seal fit, envelope shower, glossy accents,
   countdown layout and story refinements.
-- `assets/couple-and-numerals.css`: portrait placement, motion and clear number typography.
+- `assets/couple-and-numerals.css`: invitation portrait motion and clear number typography.
+- `assets/story-garden.css`: Ganpati, parent names, garden setting and integrated story chapters.
+- `assets/story-2015.jpg` through `assets/story-2025.jpg`: the five cartoon story scenes.
+- `assets/ganpati.png`, `assets/wedding-garden.png`: devotional artwork and celebration background.
 - `assets/wedding-couple.png`, `assets/couple-back.png`, `assets/couple-wedding-attire.png`: personalised illustrations.
 - `assets/envelope-blossom.svg`: lightweight floral shower artwork.
 - `music/wedding.mp3`: the existing music track.
@@ -134,3 +150,5 @@ The approved wording remains:
 - “Two hearts, one beautiful beginning. Join us as we celebrate our wedding.”
 - “A celebration of love and togetherness.”
 - “With love and joy, we invite you to join us as we begin our forever.”
+
+Story images are served as smaller JPEGs and load eagerly on both pages. Natural image dimensions reserve their space on phones; their visibility does not depend on animation. Original PNG artwork remains available for future editing.
