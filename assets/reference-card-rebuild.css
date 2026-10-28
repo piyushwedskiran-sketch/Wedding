@@ -1,0 +1,276 @@
+/*
+  Live rebuild of the selected mauve invitation and ivory PIN-card references.
+  This deliberately keeps the palace as a separate background and the cards as
+  real, responsive HTML so personalised text and forms stay usable.
+*/
+
+:root {
+  --ref-plum: #46305e;
+  --ref-lilac: #806a89;
+  --ref-ivory: #fff8e8;
+  --ref-gold: #d5a34c;
+  --ref-ink: #422c2a;
+}
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Bright palace background — kept visible above, around, and below each card. */
+.royal-opening,
+.auth-screen {
+  background: #e7d2a0 url('orchid-palace-garden.png') center center / cover no-repeat !important;
+}
+.royal-opening .royal-scene,
+.royal-opening .royal-shade { inset: 0 !important; }
+.royal-opening .royal-scene {
+  background: transparent !important;
+  animation: none !important;
+  transform: none !important;
+}
+.royal-opening .royal-shade,
+.auth-screen::before {
+  background: linear-gradient(180deg, rgb(255 250 230 / .02), rgb(91 62 81 / .06) 63%, rgb(59 41 62 / .13)) !important;
+}
+.royal-opening::before,
+.auth-screen::after {
+  inset: 14px !important;
+  border: 1px solid rgb(255 250 227 / .78) !important;
+  box-shadow: inset 0 0 0 4px rgb(183 137 63 / .31) !important;
+}
+.royal-opening::after { opacity: .34 !important; }
+.royal-glow { display: none !important; }
+
+/* Crest and top note sit independently above the invitation card. */
+.royal-intro {
+  top: clamp(25px, 4.3svh, 64px) !important;
+  z-index: 3 !important;
+  color: #4c372a !important;
+  text-shadow: 0 1px 8px rgb(255 250 226 / .8) !important;
+}
+.royal-crest {
+  width: clamp(48px, 6.5svh, 62px) !important;
+  height: clamp(48px, 6.5svh, 62px) !important;
+  background: rgb(255 251 233 / .69) !important;
+  border-color: #c9923e !important;
+  color: #4b3428 !important;
+  box-shadow: 0 0 0 7px rgb(255 242 202 / .24) !important;
+}
+.royal-crest i,
+.royal-intro p { color: #9d6b2d !important; }
+
+/* Selected card: a high arch, mauve glass, a fine gold inset frame. */
+.royal-message {
+  position: absolute !important;
+  top: clamp(185px, 24.4svh, 370px) !important;
+  left: 50% !important;
+  z-index: 4 !important;
+  width: min(84vw, 620px) !important;
+  min-height: min(53svh, 790px) !important;
+  margin: 0 !important;
+  padding: clamp(52px, 7.1svh, 104px) clamp(23px, 6vw, 56px) clamp(38px, 5.2svh, 74px) !important;
+  overflow: hidden !important;
+  color: var(--ref-ivory) !important;
+  text-align: center !important;
+  background:
+    radial-gradient(ellipse at 97% 66%, rgb(255 255 255 / .58), transparent 33%),
+    radial-gradient(ellipse at 16% 15%, rgb(151 124 161 / .31), transparent 30%),
+    linear-gradient(135deg, rgb(66 45 88 / .95), rgb(113 94 128 / .91) 64%, rgb(204 193 200 / .86)) !important;
+  border: 1px solid rgb(213 163 68 / .84) !important;
+  border-radius: 49% 49% 35px 35px / 13% 13% 35px 35px !important;
+  box-shadow: 0 25px 62px rgb(66 43 70 / .26), inset 0 1px 0 rgb(255 252 236 / .42) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+  transform: translate(-50%, 30px) scale(.975) !important;
+  transform-origin: center bottom !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 1s ease, transform 1.12s cubic-bezier(.18,.82,.2,1) !important;
+}
+.royal-message.is-visible {
+  opacity: 1 !important;
+  transform: translate(-50%, 0) scale(1) !important;
+  pointer-events: auto !important;
+}
+.royal-message::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 15px !important;
+  border: 1px solid rgb(225 184 95 / .52) !important;
+  border-radius: 46% 46% 23px 23px / 12% 12% 23px 23px !important;
+  background: none !important;
+  opacity: 1 !important;
+}
+.royal-message::after {
+  content: "✾  ❦" !important;
+  position: absolute !important;
+  right: 26px !important;
+  bottom: 22px !important;
+  color: #f0d078 !important;
+  font: 1.25rem 'Cormorant Garamond', serif !important;
+  letter-spacing: .18em !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+.royal-message > * { position: relative; z-index: 1; }
+.royal-message .message-ornament {
+  display: block !important;
+  margin: 0 0 clamp(17px, 2.1svh, 31px) !important;
+  color: #e5b65b !important;
+  font-size: clamp(1.15rem, 2.4svh, 1.65rem) !important;
+}
+.royal-message .eyebrow {
+  max-width: 520px !important;
+  margin: 0 auto clamp(21px, 2.5svh, 34px) !important;
+  color: #f7d881 !important;
+  font: 700 clamp(.58rem, 1.55svh, .77rem) / 1.55 'DM Sans', sans-serif !important;
+  letter-spacing: .18em !important;
+  text-shadow: 0 1px 7px rgb(49 29 61 / .48) !important;
+}
+.royal-message h1 {
+  margin: 0 !important;
+  color: #fff9e9 !important;
+  font: 400 clamp(4.5rem, 12.4svh, 7.2rem) / .59 'Allura', 'Great Vibes', cursive !important;
+  letter-spacing: -.02em !important;
+  -webkit-text-fill-color: #fff9e9 !important;
+  text-shadow: 0 4px 16px rgb(47 28 60 / .5) !important;
+}
+.royal-message h1 span,
+.royal-message h1 i { display: block !important; }
+.royal-message h1 i {
+  margin: .21em 0 .12em !important;
+  color: #f1c66a !important;
+  font: italic .36em / 1 'Cormorant Garamond', serif !important;
+  -webkit-text-fill-color: #f1c66a !important;
+  text-shadow: none !important;
+}
+.royal-message > p:not(.eyebrow) {
+  max-width: 490px !important;
+  margin: clamp(21px, 2.7svh, 36px) auto !important;
+  color: #fff8e9 !important;
+  font: italic clamp(1rem, 2.25svh, 1.22rem) / 1.5 'Cormorant Garamond', serif !important;
+  text-shadow: 0 2px 8px rgb(50 31 61 / .52) !important;
+}
+.royal-message .opening-tagline { margin-top: clamp(23px, 2.8svh, 37px) !important; margin-bottom: 13px !important; }
+.royal-message .opening-date {
+  margin: 0 auto clamp(27px, 3.2svh, 40px) !important;
+  color: #fff0bd !important;
+  font: 700 clamp(.62rem, 1.55svh, .84rem) / 1.4 'DM Sans', sans-serif !important;
+  letter-spacing: .23em !important;
+  text-shadow: none !important;
+}
+.royal-message .opening-date + p { margin-top: 0 !important; }
+.royal-continue {
+  min-width: min(100%, 355px) !important;
+  margin-top: clamp(7px, 1.2svh, 14px) !important;
+  padding: 15px 25px 12px !important;
+  border: 1px solid #f0ca70 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #3b264d, #76516e) !important;
+  color: #fff6e8 !important;
+  box-shadow: 0 5px 0 #825b30, 0 14px 28px rgb(52 29 62 / .26) !important;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease !important;
+}
+.royal-continue:hover { transform: translateY(-3px) !important; box-shadow: 0 8px 0 #825b30, 0 19px 32px rgb(52 29 62 / .31) !important; filter: brightness(1.05); }
+.royal-continue span { font-size: .68rem !important; }
+.royal-continue b,
+.royal-continue small { color: #f1cf76 !important; }
+
+/* Pin view recreates the companion ivory arched card from the selected image. */
+.auth-halo { display: none !important; }
+.auth-card {
+  width: min(86vw, 620px) !important;
+  margin: auto !important;
+  padding: clamp(45px, 6.4svh, 84px) clamp(24px, 6.2vw, 58px) clamp(35px, 5.1svh, 67px) !important;
+  color: var(--ref-ink) !important;
+  background:
+    radial-gradient(ellipse at 7% 4%, rgb(255 255 255 / .94), transparent 26%),
+    radial-gradient(ellipse at 86% 82%, rgb(218 193 145 / .32), transparent 35%),
+    linear-gradient(135deg, rgb(255 253 246 / .83), rgb(247 239 211 / .74) 58%, rgb(255 249 231 / .81)) !important;
+  border: 1px solid rgb(205 156 76 / .78) !important;
+  border-radius: 48% 48% 35px 35px / 12% 12% 35px 35px !important;
+  box-shadow: 0 25px 58px rgb(93 66 47 / .22), inset 0 1px 0 rgb(255 255 255 / .9) !important;
+  backdrop-filter: blur(3px) !important;
+  -webkit-backdrop-filter: blur(3px) !important;
+}
+.auth-card::before {
+  content: "" !important;
+  inset: 15px !important;
+  border: 1px solid rgb(192 142 66 / .45) !important;
+  border-radius: 44% 44% 22px 22px / 10% 10% 22px 22px !important;
+  background: none !important;
+}
+.auth-card::after { content: "✾  ❦" !important; color: #c89144 !important; }
+.auth-card > * { position: relative; z-index: 1; }
+.auth-crest { background: rgb(255 252 237 / .8) !important; border-color: #c8913d !important; color: #4a3228 !important; }
+.auth-card .eyebrow { color: #a47437 !important; -webkit-text-fill-color: #a47437 !important; }
+.auth-card h1 {
+  color: #3e2922 !important;
+  font: 400 clamp(3.8rem, 9.5svh, 6.6rem) / .7 'Allura', 'Great Vibes', cursive !important;
+  -webkit-text-fill-color: #3e2922 !important;
+  text-shadow: none !important;
+}
+.auth-card h1 span { display: inline-block !important; }
+.auth-card h1 i { color: #bb8439 !important; -webkit-text-fill-color: #bb8439 !important; font: italic .42em 'Cormorant Garamond', serif !important; }
+.auth-card .wedding-date,
+.auth-card .auth-intro { color: #5d4536 !important; -webkit-text-fill-color: #5d4536 !important; text-shadow: none !important; }
+.auth-card .auth-divider span { background: #fffaf0 !important; color: #885c35 !important; }
+.auth-card input {
+  background: rgb(57 40 78 / .9) !important;
+  border-color: #b17949 !important;
+  color: #fff9e8 !important;
+  -webkit-text-fill-color: #fff9e8 !important;
+}
+.auth-card input::placeholder { color: #f2e6da !important; }
+.auth-card .gold-button { background: linear-gradient(135deg, #f4d178, #ca8d38) !important; color: #402b43 !important; box-shadow: 0 5px 0 #8e6237 !important; }
+.landing-countdown { border-top-color: #cda86b !important; color: #785633 !important; }
+.landing-countdown b { color: #493128 !important; }
+.landing-countdown small { color: #956e3d !important; }
+
+/* The personal greeting, events and RSVP stay in the same mauve and gold language. */
+.invitation::after { filter: none !important; }
+.invitation .hero-content,
+.invitation .rsvp-form {
+  background:
+    radial-gradient(ellipse at 94% 82%, rgb(255 255 255 / .55), transparent 31%),
+    linear-gradient(135deg, rgb(66 45 88 / .94), rgb(113 94 128 / .89) 64%, rgb(205 193 200 / .84)) !important;
+}
+.event.event-card,
+.event.event-card:nth-child(3n + 2),
+.event.event-card:nth-child(3n + 3) {
+  background: linear-gradient(145deg, rgb(68 46 89 / .94), rgb(120 99 135 / .89) 64%, rgb(205 193 200 / .82)) !important;
+}
+
+@media (max-width: 620px) {
+  .royal-opening::before,
+  .auth-screen::after { inset: 9px !important; }
+  .royal-intro { top: max(2.8svh, 18px) !important; }
+  .royal-intro p { margin-top: 7px !important; font-size: .86rem !important; }
+  .royal-message {
+    top: clamp(182px, 24.4svh, 235px) !important;
+    width: min(86vw, 510px) !important;
+    min-height: min(57svh, 545px) !important;
+    padding: clamp(46px, 6.3svh, 63px) 21px clamp(31px, 4.1svh, 44px) !important;
+    border-radius: 47% 47% 29px 29px / 10% 10% 29px 29px !important;
+  }
+  .royal-message::before { inset: 13px !important; }
+  .royal-message .message-ornament { margin-bottom: 18px !important; }
+  .royal-message .eyebrow { margin-bottom: 20px !important; font-size: .57rem !important; letter-spacing: .145em !important; }
+  .royal-message h1 { font-size: clamp(4.25rem, 13.1svh, 5.7rem) !important; }
+  .royal-message > p:not(.eyebrow) { margin: 19px auto !important; font-size: 1rem !important; }
+  .royal-message .opening-tagline { margin-top: 23px !important; margin-bottom: 11px !important; }
+  .royal-message .opening-date { margin-bottom: 23px !important; font-size: .61rem !important; }
+  .royal-message .opening-date + p { margin-bottom: 21px !important; }
+  .royal-continue { min-width: min(100%, 295px) !important; padding: 13px 20px 10px !important; }
+
+  .auth-card {
+    width: min(87vw, 510px) !important;
+    padding: 41px 23px 31px !important;
+    border-radius: 45% 45% 28px 28px / 9% 9% 28px 28px !important;
+  }
+  .auth-card h1 { font-size: clamp(3.5rem, 9svh, 4.65rem) !important; }
+  .auth-card .auth-intro { font-size: .78rem !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .royal-message,
+  .royal-message.is-visible { opacity: 1 !important; transform: translate(-50%, 0) !important; transition: none !important; }
+}

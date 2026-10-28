@@ -1,0 +1,287 @@
+/* Champagne-glass orchid garden card system — selected design direction. */
+:root {
+  --orchid-ink: #3d2b20;
+  --orchid-gold: #bb8c43;
+  --orchid-ivory: #fffaf0;
+  --orchid-jade: #315f4f;
+  --orchid-coral: #c98673;
+}
+
+.royal-opening {
+  background: #476454 !important;
+}
+
+.royal-scene {
+  background: url('orchid-palace-garden.png') center / cover no-repeat !important;
+  filter: saturate(.93) contrast(1.02) !important;
+  animation: orchid-garden-drift 20s ease-in-out infinite alternate !important;
+}
+
+.royal-shade {
+  background:
+    linear-gradient(180deg, #fff8e733 0%, #fffaf000 35%, #23443b25 100%),
+    radial-gradient(ellipse at 50% 45%, #fff9ec0c 0%, #1b362d45 100%) !important;
+}
+
+.royal-opening::before {
+  border-color: #ead08dbe !important;
+  box-shadow: inset 0 0 0 5px #fff8e980 !important;
+}
+
+.royal-intro, .royal-intro p { color: var(--orchid-ink) !important; text-shadow: 0 1px #fff9e0; }
+.royal-crest { border-color: #c79a56 !important; background: #fff9edab; box-shadow: 0 0 0 5px #fff9ed8c, 0 8px 22px #6a4a2630; }
+.royal-crest i { color: #bd8441 !important; }
+
+.royal-message,
+.invitation .hero-content,
+.auth-card,
+.invitation .rsvp-form {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #c99e5bbd !important;
+  border-radius: 190px 190px 30px 30px / 100px 100px 30px 30px !important;
+  background:
+    radial-gradient(circle at 14% 7%, #fffdf7e8 0 2px, transparent 3px),
+    radial-gradient(circle at 84% 87%, #d48b6d28 0 2px, transparent 3px),
+    linear-gradient(120deg, #fffdf5e8, #f3e4c7cd 58%, #fff7e4df) !important;
+  background-size: 92px 92px, 130px 130px, 100% 100% !important;
+  color: var(--orchid-ink) !important;
+  box-shadow: 0 28px 72px #4a301f4d, inset 0 0 0 7px #fffdf394, inset 0 0 0 9px #c99e5a63 !important;
+  backdrop-filter: blur(16px) saturate(1.08) !important;
+}
+
+.royal-message::before,
+.invitation .hero-content::before,
+.auth-card::before,
+.invitation .rsvp-form::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 11px !important;
+  z-index: 0 !important;
+  border: 1px solid #bd8b475f !important;
+  border-radius: 176px 176px 22px 22px / 89px 89px 22px 22px !important;
+  background:
+    radial-gradient(ellipse at 50% 0%, #d1a86434, transparent 24%),
+    linear-gradient(115deg, transparent 33%, #ffffff99 48%, transparent 63%) !important;
+  background-size: auto, 230% 100% !important;
+  pointer-events: none;
+  animation: gold-thread-sweep 8s ease-in-out infinite !important;
+}
+
+.royal-message::after,
+.invitation .hero-content::after,
+.auth-card::after,
+.invitation .rsvp-form::after {
+  content: '✦' !important;
+  position: absolute !important;
+  right: 24px !important;
+  bottom: 21px !important;
+  z-index: 0 !important;
+  color: #c08e48 !important;
+  font: 1.15rem 'Cormorant Garamond' !important;
+  text-shadow: 0 0 12px #fff4b9;
+  animation: pearl-twinkle 3.5s ease-in-out infinite !important;
+}
+
+.royal-message > *,
+.invitation .hero-content > *,
+.auth-card > *,
+.invitation .rsvp-form > * { position: relative; z-index: 1; }
+
+.royal-message {
+  width: min(88vw, 640px) !important;
+  padding: clamp(54px, 8vw, 76px) clamp(26px, 8vw, 78px) clamp(42px, 6vw, 61px) !important;
+  transition: opacity .9s ease, transform .9s cubic-bezier(.16,.85,.2,1) !important;
+}
+
+.royal-message.is-visible { animation: orchid-message-arrive 1.15s cubic-bezier(.16,.84,.2,1) both !important; }
+.royal-message .eyebrow { color: #7b5c38 !important; }
+.royal-message h1 { color: var(--orchid-ink) !important; text-shadow: none !important; }
+.royal-message h1 i { color: #a87943 !important; }
+.royal-message > p:not(.eyebrow) { color: #5b4734 !important; }
+.royal-message .opening-date, .message-ornament { color: #9d713b !important; }
+
+.royal-continue {
+  position: relative;
+  overflow: hidden;
+  border-color: #9b6d32 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(120deg, #3c2a1d, #6a4930 48%, #3c2a1d) !important;
+  color: #fff4d4 !important;
+  box-shadow: 0 5px 0 #9d713b, 0 16px 29px #4d2f2060 !important;
+}
+
+.royal-continue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 34%, #fff1b34f 50%, transparent 66%);
+  transform: translateX(-125%);
+  transition: transform .7s ease;
+}
+
+.royal-continue:hover::before, .royal-continue:focus-visible::before { transform: translateX(125%); }
+.royal-continue:hover { transform: translateY(-3px) scale(1.01) !important; }
+.royal-continue b, .royal-continue small { color: #f0cc7b !important; }
+
+.auth-screen {
+  background: linear-gradient(#fff7e52c, #315d4b34), url('orchid-palace-garden.png') center / cover no-repeat !important;
+  animation: orchid-garden-drift 20s ease-in-out infinite alternate !important;
+}
+
+.auth-screen::before {
+  background: linear-gradient(135deg, #fff8e42a, #3b5e4b28 52%, #c8857130) !important;
+}
+
+.auth-screen::after { border-color: #e4c780b9 !important; box-shadow: inset 0 0 0 5px #fff9e587 !important; }
+.auth-halo { border-color: #d2a55f86 !important; box-shadow: 0 0 0 20px #fff4d24a, 0 0 0 42px #c9975231, 0 0 90px #b6745540 !important; }
+
+.auth-card {
+  width: min(100%, 590px) !important;
+  padding: 48px 54px 36px !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  animation: none !important;
+}
+
+.auth-screen.login-enter .auth-card { animation: orchid-card-arrive 1s cubic-bezier(.16,.84,.2,1) both !important; }
+.auth-crest { border-color: #b88945 !important; background: #fffaf0dc !important; color: #4e3524 !important; box-shadow: 0 0 0 6px #c18e4c22, 0 7px 18px #4b2f1f2e !important; }
+.auth-crest span { color: #b87d45 !important; }
+.auth-card .eyebrow { color: #896537 !important; }
+.auth-card h1 { background: none !important; -webkit-text-fill-color: var(--orchid-ink) !important; color: var(--orchid-ink) !important; text-shadow: none !important; }
+.auth-card h1 i { color: #ad7740 !important; }
+.wedding-date, .auth-card .auth-intro { color: #5b4734 !important; }
+.auth-divider { background: linear-gradient(90deg, transparent, #bc8a47, #d1a76a, #bc8a47, transparent) !important; }
+.auth-divider span { background: #f6e7ca !important; color: #a97842 !important; }
+.auth-card input { border-color: #b99059a8 !important; background: #fffdf8d9 !important; color: #453124 !important; }
+.auth-card input::placeholder { color: #8e806d !important; }
+.auth-card input:focus { box-shadow: 0 0 0 3px #cb9d5a36, 0 0 22px #80a58f45 !important; }
+.auth-card .gold-button, .invitation .rsvp-form .gold-button {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #9d713a !important;
+  border-radius: 999px !important;
+  background: linear-gradient(115deg, #3b291d, #6b4a31 50%, #3b291d) !important;
+  color: #fff2d0 !important;
+  box-shadow: 0 5px 0 #a7783e, 0 13px 25px #53331f43 !important;
+}
+
+.auth-card .gold-button span { color: #eac573 !important; }
+.landing-countdown { border-top-color: #b9905a88 !important; color: #77562f !important; }
+.landing-countdown b { color: #453124 !important; }
+.landing-countdown small { color: #946c3a !important; }
+
+.invitation::after {
+  background: url('orchid-palace-garden.png') center / cover no-repeat !important;
+  filter: saturate(.92) contrast(1.02) brightness(.9) !important;
+}
+
+.invitation::before {
+  background:
+    radial-gradient(circle at 10% 12%, #fff9e585, transparent 27%),
+    radial-gradient(circle at 88% 26%, #c9826f33, transparent 29%),
+    linear-gradient(135deg, #395d4a55, #fff7e51d 48%, #b9786744) !important;
+  animation: orchid-backdrop-drift 17s ease-in-out infinite alternate !important;
+}
+
+.invitation .hero::before { background: linear-gradient(180deg, #fff7e514, #315a493e 72%, #315a4963) !important; }
+.invitation .hero-content { width: min(100%, 660px) !important; padding: clamp(54px, 8vw, 78px) clamp(28px, 8vw, 78px) clamp(45px, 7vw, 64px) !important; }
+.invitation .hero .personal { color: #8a6336 !important; text-shadow: none !important; }
+.invitation .hero .request, .hero-note { color: #594636 !important; }
+.invitation .hero h1 { background: none !important; -webkit-text-fill-color: var(--orchid-ink) !important; color: var(--orchid-ink) !important; text-shadow: none !important; }
+.invitation .hero h1 i, .invitation .hero .date, .invitation .hero .scroll-cue span { color: #b37f42 !important; }
+.invitation .hero .scroll-cue { color: #4b3829 !important; }
+.welcome-seal { border-color: #c09350 !important; background: #fffaf0ce !important; color: #4d3624 !important; box-shadow: 0 0 0 6px #c596531c, 0 7px 19px #4b2f1f25 !important; }
+.welcome-seal i { color: #b77f44 !important; }
+
+.invitation .rsvp::before {
+  background: radial-gradient(circle at 15% 50%, #fff8e66c, transparent 28%), radial-gradient(circle at 85% 22%, #d18a722c, transparent 26%) !important;
+}
+
+.invitation .rsvp h2 { color: #453124 !important; text-shadow: 0 1px #fff8e5 !important; }
+.invitation .rsvp .section-copy { color: #5a493a !important; }
+.invitation .rsvp .eyebrow { color: #87643c !important; }
+
+.invitation .rsvp-form {
+  max-width: 570px !important;
+  padding: 52px 44px 37px !important;
+  text-align: left !important;
+  animation: orchid-form-breathe 10s ease-in-out infinite !important;
+}
+
+.invitation .rsvp-form label, .meal-choice legend { color: #4b3524 !important; }
+.invitation .rsvp-form input, .invitation .rsvp-form select, .invitation .rsvp-form textarea {
+  border-color: #bd935f99 !important;
+  border-radius: 12px !important;
+  background: #fffdf8d7 !important;
+  color: #433124 !important;
+}
+
+.invitation .rsvp-form input:focus, .invitation .rsvp-form select:focus, .invitation .rsvp-form textarea:focus {
+  border-color: #b58648 !important;
+  background: #fffefa !important;
+  box-shadow: 0 0 0 3px #d9ad6a38, 0 0 20px #7eb49a40 !important;
+}
+
+.invitation .rsvp-form select option { background: #fffaf0 !important; color: #433124 !important; }
+.meal-options label { border-color: #ba92616d !important; background: #fffdf8cc !important; color: #4a3525 !important; }
+.rsvp-actions .text-button { border-color: #b78c5780 !important; background: #fffaf080 !important; color: #5c412b !important; }
+.rsvp-actions .clear-button { border-color: #bd796d93 !important; color: #914537 !important; }
+.invitation .rsvp-form #rsvpStatus { color: #68492c !important; }
+
+@keyframes orchid-garden-drift {
+  from { background-position: 50% 49%; }
+  to { background-position: 50% 54%; }
+}
+
+@keyframes gold-thread-sweep {
+  0%, 22% { background-position: center, -115% 0; }
+  48%, 100% { background-position: center, 215% 0; }
+}
+
+@keyframes pearl-twinkle {
+  0%, 100% { opacity: .45; transform: scale(.85) rotate(0); }
+  50% { opacity: 1; transform: scale(1.13) rotate(18deg); }
+}
+
+@keyframes orchid-message-arrive {
+  from { opacity: 0; transform: translateY(26px) scale(.965); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes orchid-card-arrive {
+  from { opacity: 0; transform: translateY(28px) scale(.97); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes orchid-form-breathe {
+  0%, 100% { box-shadow: 0 28px 72px #4a301f4d, inset 0 0 0 7px #fffdf394, inset 0 0 0 9px #c99e5a63; }
+  50% { box-shadow: 0 32px 78px #4a301f5c, 0 0 32px #fff0c584, inset 0 0 0 7px #fffdf394, inset 0 0 0 9px #c99e5a73; }
+}
+
+@keyframes orchid-backdrop-drift {
+  from { background-position: 0% 0%; }
+  to { background-position: 100% 100%; }
+}
+
+@media (max-width: 620px) {
+  .royal-scene, .auth-screen, .invitation::after { background-position: center center !important; }
+  .royal-opening::before { inset: 9px !important; }
+  .royal-message, .invitation .hero-content, .auth-card, .invitation .rsvp-form { border-radius: 125px 125px 24px 24px / 72px 72px 24px 24px !important; }
+  .royal-message::before, .invitation .hero-content::before, .auth-card::before, .invitation .rsvp-form::before { inset: 9px !important; border-radius: 116px 116px 17px 17px / 64px 64px 17px 17px !important; }
+  .royal-message { width: min(90vw, 460px) !important; padding: 51px 23px 34px !important; }
+  .auth-card { width: min(100%, 430px) !important; padding: 44px 23px 26px !important; }
+  .invitation .hero { padding: max(72px, env(safe-area-inset-top)) 17px 45px !important; }
+  .invitation .hero-content { padding: 49px 21px 33px !important; }
+  .invitation .hero h1 { font-size: clamp(4rem, 18vw, 5.25rem) !important; }
+  .invitation .rsvp-form { padding: 46px 20px 29px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .royal-scene, .auth-screen, .royal-message.is-visible, .auth-screen.login-enter .auth-card,
+  .royal-message::before, .invitation .hero-content::before, .auth-card::before,
+  .invitation .rsvp-form::before, .invitation .rsvp-form, .invitation::before {
+    animation: none !important;
+  }
+}
