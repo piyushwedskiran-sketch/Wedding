@@ -52,6 +52,7 @@ current image details and prompts.
 | Mehendi | 11 December 2026 | 7:00 PM | Hotel The Eleganza, main hall |
 | Cocktail | 11 December 2026 | 7:00 PM | Hotel The Eleganza, rooftop |
 | Haldi | 12 December 2026 | 11:00 AM | Hotel The Eleganza, rooftop |
+| Sehra Bandi | 12 December 2026 | 5:00 PM | Hotel The Eleganza |
 | Baraat Departure | 12 December 2026 | 7:00 PM | Hotel The Eleganza |
 | Wedding | 12 December 2026 | 9:00 PM | Annfield Lawn by Monga Tent House |
 
@@ -69,9 +70,9 @@ the earlier residence plan is superseded.
 ## Clothing notes
 
 - Haldi: Shades of yellow.
-- Sangeet: Colourful festive wear.
+- Sangeet: Sparkling Indo-Western attire.
 - Cocktail: Glamorous evening wear.
-- No clothing notes on Shagun, Mehendi, Ring Ceremony, Baraat Departure or Wedding.
+- No clothing notes on Shagun, Mehendi, Ring Ceremony, Sehra Bandi, Baraat Departure or Wedding.
 
 These notes are shared by matching event designs on both invitation versions.
 
@@ -152,3 +153,5 @@ The approved wording remains:
 - “With love and joy, we invite you to join us as we begin our forever.”
 
 Story images are served as smaller JPEGs and load eagerly on both pages. Natural image dimensions reserve their space on phones; their visibility does not depend on animation. Original PNG artwork remains available for future editing.
+
+Groom-side guests with Wedding selected automatically see Sehra Bandi (5 PM), Baraat Departure (7 PM), and Wedding (9 PM), all on 12 December. Sehra Bandi and Baraat Departure are at Hotel The Eleganza; Wedding is at Annfield Lawn. All three use the existing Wedding sheet selection. No new column or backend deployment is needed. Bride selections remain independent. The invitation blessing reads “With the blessings of God and our families.”

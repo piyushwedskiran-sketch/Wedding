@@ -1,3 +1,5 @@
+> Earlier artwork record. The current story design and new image prompts are documented in `CURRENT-ARTWORK.md`. The standalone portrait gallery described below has been replaced by five integrated chapters.
+
 # Personalised couple artwork
 
 Created with the built-in ImageGen tool using the user-provided photographs as identity and clothing references. These are stylised illustrations, with gentle motion supplied by the website's CSS. The back pose is an artistic reconstruction, not documentary photographs.
