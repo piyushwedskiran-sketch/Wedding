@@ -16,6 +16,7 @@ const GROOM_EVENTS = [
   { key: 'mehendi', date: '11 December 2026', day: '11', month: 'Dec', name: 'Mehendi', time: '7:00 PM', setting: 'Main Hall', venue: ELEGANZA },
   { key: 'cocktail', date: '11 December 2026', day: '11', month: 'Dec', name: 'Cocktail', time: '7:00 PM', setting: 'Rooftop', venue: ELEGANZA },
   { key: 'haldi', date: '12 December 2026', day: '12', month: 'Dec', name: 'Haldi', time: '11:00 AM', setting: 'Rooftop', venue: ELEGANZA },
+  { key: 'wedding', date: '12 December 2026', day: '12', month: 'Dec', name: 'Sehra Bandi', time: '5:00 PM', setting: 'Hotel The Eleganza', venue: ELEGANZA },
   { key: 'wedding', date: '12 December 2026', day: '12', month: 'Dec', name: 'Baraat Departure', time: '7:00 PM', setting: 'Hotel The Eleganza', venue: ELEGANZA },
   { key: 'wedding', date: '12 December 2026', day: '12', month: 'Dec', name: 'Wedding', time: '9:00 PM', setting: 'Annfield Lawn', venue: ANNFIELD }
 ];

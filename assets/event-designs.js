@@ -4,10 +4,11 @@
 const EVENT_DESIGNS = {
   'Shagun': { theme: 'shagun', caption: 'Blessings & beautiful beginnings', attire: '' },
   'Ring Ceremony': { theme: 'rings', caption: 'A promise, made forever', attire: '' },
-  'Sangeet': { theme: 'sangeet', caption: 'An evening of music & dance', attire: 'Colourful festive wear', swatches: ['#b34a77', '#d9a54f', '#497c79'] },
+  'Sangeet': { theme: 'sangeet', caption: 'An evening of music & dance', attire: 'Sparkling Indo-Western attire', swatches: ['#b34a77', '#d9a54f', '#497c79'] },
   'Mehendi': { theme: 'mehendi', caption: 'Henna, laughter & a little magic', attire: '' },
   'Cocktail': { theme: 'cocktail', caption: 'Raise a glass to love', attire: 'Glamorous evening wear', swatches: ['#2c374e', '#a67c54', '#d8c7aa'] },
   'Haldi': { theme: 'haldi', caption: 'A little sunshine, a lot of love', attire: 'Shades of yellow', swatches: ['#e9ba42', '#f2d77c', '#f8ebaf'] },
+  'Sehra Bandi': { theme: 'sehra', caption: 'Blessings before the journey', attire: '' },
   'Baraat Departure': { theme: 'baraat', caption: 'Let the celebrations begin', attire: '' },
   'Wedding': { theme: 'marriage', caption: 'The beginning of our forever', attire: '' }
 };
@@ -26,6 +27,7 @@ function eventIllustration(theme) {
     shagun: `<g class="art-float"><rect class="shagun-envelope" x="118" y="90" width="124" height="79" rx="5"/><path class="envelope-fold" d="M120 94L180 137L240 94M119 167L160 130M241 167L200 130"/><circle class="shagun-seal" cx="180" cy="133" r="13"/><path class="seal-mark" d="M180 125L182 131L188 133L182 135L180 141L178 135L172 133L178 131Z"/></g>${flower(111,91,.56)}${flower(247,91,.56)}${leaves}${star(180,61,.8)}${star(272,111,.45)}`,
     rings: `<g class="art-float"><circle class="wedding-ring" cx="159" cy="131" r="33"/><circle class="wedding-ring" cx="203" cy="131" r="33"/><path class="ring-highlight" d="M136 130a23 23 0 0 1 29-22M181 141a23 23 0 0 0 35 7"/><path class="diamond" d="M189 88L196 78H210L217 88L203 104ZM189 88H217M196 78L203 104L210 78"/></g>${leaves}${flower(99,90,.5)}${flower(264,91,.5)}${star(159,73,.6)}`,
     marriage: `<g class="mandap"><path class="mandap-canopy" d="M102 91L180 44L258 91ZM118 91H242V105H118Z"/><path class="mandap-pillars" d="M125 105V170M235 105V170"/><path class="mandap-floor" d="M106 174H254M115 167H245"/><path class="marriage-garland" d="M127 109Q151 146 179 109Q208 146 233 109"/><path class="canopy-detail" d="M132 84L180 55L228 84"/>${flower(180,49,.45)}<g class="art-flame"><path d="M181 137Q198 152 190 162H173Q165 152 181 137Z"/><path d="M180 148Q188 157 183 161H178Z"/></g><path class="fire-bowl" d="M165 164H197L191 172H171Z"/></g>${leaves}${star(85,66,.55)}${star(278,66,.55)}`,
+    sehra: `<g class="art-float"><path class="sehra-turban" d="M122 104Q120 60 174 60Q228 58 238 104L225 117H135Z"/><path d="M130 98Q166 59 218 72M139 107Q180 73 229 86M132 116H226"/><path class="sehra-plume" d="M181 73Q155 36 180 26Q205 48 181 73Z"/><path d="M180 64V34"/><circle class="sehra-jewel" cx="180" cy="90" r="9"/>${[139,152,165,180,195,208,221].map((x,i)=>`<path class="sehra-strings" d="M${x} 117V${163+((i%3)*5)}"/>${[128,140,152,164].map(y=>`<circle class="sehra-pearl" cx="${x}" cy="${y}" r="2.5"/>`).join('')}`).join('')}</g>${leaves}${star(101,69,.55)}${star(259,77,.65)}`,
     baraat: `<g class="art-float"><path class="trumpet" d="M126 115L211 85L237 141L151 162Z"/><ellipse class="trumpet-bell" cx="224" cy="113" rx="14" ry="31" transform="rotate(-24 224 113)"/><path class="trumpet-detail" d="M130 126L112 131L107 120M141 145L123 152M162 105L179 151M178 99L196 146"/></g><g class="art-notes"><path d="M100 72V99M100 72L117 69V93"/><ellipse cx="95" cy="100" rx="6" ry="4"/><ellipse cx="112" cy="94" rx="6" ry="4"/></g>${flower(265,163,.55)}${star(259,62,.7)}${star(90,156,.55)}`
   };
   return `<svg class="event-artwork" viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">${backdrop}${illustrations[theme] || illustrations.marriage}</svg>`;
