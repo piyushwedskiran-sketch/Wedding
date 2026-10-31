@@ -1,0 +1,55 @@
+# Current story photographs — 31 October 2026
+
+Both pages use the following user-supplied images. The source files remain unchanged in Downloads. The website uses proportionally resized JPEG delivery copies (maximum 1600 pixels) without crops, retouching, filters, regenerated faces or background changes. Existing artwork and watermarks in supplied files are preserved. Full compositions display on phones and desktop.
+
+| Chapter | Supplied file | Website asset |
+| --- | --- | --- |
+| 2015 — MSc friendship | 20170501_181205_IMG_1598.jpg | assets/story-photo-2015.jpg |
+| 2017 — Beginning the relationship | 20171229_153451_IMG_5647.jpg | assets/story-photo-2017.jpg |
+| 2019 — Starting PhDs | 20230709_202322.jpg | assets/story-photo-2019.jpg |
+| July 2024 — Vietnam proposal | Screenshot_20261031_172602_Gallery.jpg | assets/story-photo-2024-proposal.jpg |
+| November 2024 — Roka | GSR_7874(2).jpg | assets/story-photo-2024-roka.jpg |
+| 2025 — Becoming doctors | 20260306_143031.jpg | assets/story-photo-2025.jpg |
+
+The earlier generated story scenes documented below are no longer displayed. The Ganpati, subtle garden background and invitation portrait remain in use.
+
+---
+
+# Earlier generated wedding artwork
+
+Created using the built-in ImageGen tool. The five story scenes use the approved couple portrait as an identity reference, softened into cartoon illustrations. Their backgrounds and outfits are artistic interpretations of the supplied milestones. Both invitation pages share the same scenes. The invitation retains its earlier wedding-outfit portrait. The old standalone story portraits are no longer displayed.
+
+## Asset paths and prompts
+
+### assets/story-2015.png
+
+Create a landscape 3:2 illustration for a couple's wedding website story timeline. Input image is an IDENTITY REFERENCE ONLY, NOT style target. Show the same Indian adult couple but make them much more cartoon-like than reference: elegant 2D animated film characters, clearly simplified round friendly faces, clean curved outlines, flat cel shading, no photographic skin texture, no detailed wrinkles. Retain just recognizable cues: man's short dark hair, trimmed beard, thin metal glasses, woman's long dark wavy hair and soft rounded face, their medium skin tones, man taller. Natural adult proportions, not chibi. Coordinated painterly storybook background and rich warm muted emerald, plum, peach and gold palette. Front-facing or three-quarter frontal faces, NEVER side profile. Couple occupies about half image with place clearly visible. This is a symbolic imagined illustration, no text, numbers, captions, lettering, watermark, split panels or frames. MSc university friendship: both in simple casual student clothes, sitting together at a leafy campus courtyard table with books and notebooks, warm daylight, friendly relaxed smiles. Man dusty-blue shirt, woman peach kurta. No romance gesture.
+
+### assets/story-2017.png
+
+Create a landscape 3:2 illustration for a couple's wedding website story timeline. Input image is an IDENTITY REFERENCE ONLY, NOT style target. Show the same Indian adult couple but make them much more cartoon-like than reference: elegant 2D animated film characters, clearly simplified round friendly faces, clean curved outlines, flat cel shading, no photographic skin texture, no detailed wrinkles. Retain just recognizable cues: man's short dark hair, trimmed beard, thin metal glasses, woman's long dark wavy hair and soft rounded face, their medium skin tones, man taller. Natural adult proportions, not chibi. Coordinated painterly storybook background and rich warm muted emerald, plum, peach and gold palette. Front-facing or three-quarter frontal faces, NEVER side profile. Couple occupies about half image with place clearly visible. This is a symbolic imagined illustration, no text, numbers, captions, lettering, watermark, split panels or frames. The day friendship became love after their last MSc exam: smiling couple holding hands on a green university walkway, books tucked under free arms, spring blossoms and soft afternoon light. Man ivory casual shirt, woman muted rose kurta. No kneeling or wedding ceremony.
+
+### assets/story-2019.png
+
+Create a landscape 3:2 illustration for a couple's wedding website story timeline. Input image is an IDENTITY REFERENCE ONLY, NOT style target. Show the same Indian adult couple but make them much more cartoon-like than reference: elegant 2D animated film characters, clearly simplified round friendly faces, clean curved outlines, flat cel shading, no photographic skin texture, no detailed wrinkles. Retain just recognizable cues: man's short dark hair, trimmed beard, thin metal glasses, woman's long dark wavy hair and soft rounded face, their medium skin tones, man taller. Natural adult proportions, not chibi. Coordinated painterly storybook background and rich warm muted emerald, plum, peach and gold palette. Front-facing or three-quarter frontal faces, NEVER side profile. Couple occupies about half image with place clearly visible. This is a symbolic imagined illustration, no text, numbers, captions, lettering, watermark, split panels or frames. Beginning PhDs together: both studying at a broad wooden desk in a beautiful university library, bookshelves, notebooks and warm reading lamps, both faces clearly visible facing outward. Man forest-green shirt, woman cream kurta and plum shawl. Academic research atmosphere, not graduation.
+
+### assets/story-2024.png
+
+Create a landscape 3:2 illustration for a couple's wedding website story timeline. Input image is an IDENTITY REFERENCE ONLY, NOT style target. Show the same Indian adult couple but make them much more cartoon-like than reference: elegant 2D animated film characters, clearly simplified round friendly faces, clean curved outlines, flat cel shading, no photographic skin texture, no detailed wrinkles. Retain just recognizable cues: man's short dark hair, trimmed beard, thin metal glasses, woman's long dark wavy hair and soft rounded face, their medium skin tones, man taller. Natural adult proportions, not chibi. Coordinated painterly storybook background and rich warm muted emerald, plum, peach and gold palette. Front-facing or three-quarter frontal faces, NEVER side profile. Couple occupies about half image with place clearly visible. This is a symbolic imagined illustration, no text, numbers, captions, lettering, watermark, split panels or frames. Vietnam proposal and Roka chapter: couple smiling and holding hands in a romantic Vietnamese lantern garden beside water, tropical foliage, softly glowing lanterns, warm twilight. Man black kurta with restrained rose embroidery, woman peach festive lehenga and dupatta. A small engagement ring subtly visible on her hand. No side-profile pose.
+
+### assets/story-2025.png
+
+Create a landscape 3:2 illustration for a couple's wedding website story timeline. Input image is an IDENTITY REFERENCE ONLY, NOT style target. Show the same Indian adult couple but make them much more cartoon-like than reference: elegant 2D animated film characters, clearly simplified round friendly faces, clean curved outlines, flat cel shading, no photographic skin texture, no detailed wrinkles. Retain just recognizable cues: man's short dark hair, trimmed beard, thin metal glasses, woman's long dark wavy hair and soft rounded face, their medium skin tones, man taller. Natural adult proportions, not chibi. Coordinated painterly storybook background and rich warm muted emerald, plum, peach and gold palette. Front-facing or three-quarter frontal faces, NEVER side profile. Couple occupies about half image with place clearly visible. This is a symbolic imagined illustration, no text, numbers, captions, lettering, watermark, split panels or frames. Earning doctorates together: the couple stands smiling side by side in black doctoral graduation gowns with restrained gold trim holding rolled diplomas, leafy university lawn and elegant academic building behind, warm celebratory daylight, front-facing recognizable cartoon faces, her long hair visible. No lettering.
+
+### assets/ganpati.png
+
+Create an elegant devotional photographic artwork of a small exquisite seated Lord Ganesha idol for a Hindu wedding invitation. Faithful traditional recognizable Ganpati iconography, serene elephant face and curved trunk, four arms, blessing hand, modak, intricate antique gold crown, soft ivory-gold carved material with small muted ruby accents, seated on a lotus pedestal. Respectful, dignified, symmetrical complete idol including crown and pedestal with generous clear margin. Isolated on a genuinely transparent background. No text, letters, Om symbol, scenery, rectangular background or watermark. Sophisticated fine gold craftsmanship, soft studio lighting, clear readable silhouette at small size.
+
+### assets/wedding-garden.png
+
+Create a luxurious Indian wedding garden background for a website events section. Landscape 3:2 wide composition, grand formal garden at blue-hour dusk with symmetrical sandstone palace arches framing left and right, lush foliage, generous ivory blush and soft rose floral arrangements, several elegant crystal chandeliers glowing warm champagne above, tiny warm fairy lights, distant central floral wedding mandap, beautiful rich emerald garden and warm gold highlights. No people, no text, logos or lettering. Photographic cinematic quality, romantic sophisticated expensive decor. Keep the central lower region quieter with soft lawn, depth and negative space so event cards can be placed on top. Architecture and flowers around perimeter, neither overly dark nor whitewashed.
+
+
+## Web delivery
+
+The five story PNGs are retained as original artwork. The website uses JPEG copies (`assets/story-2015.jpg`, `assets/story-2017.jpg`, `assets/story-2019.jpg`, `assets/story-2024.jpg`, `assets/story-2025.jpg`) with unchanged compositions and smaller downloads. Both pages load these same pictures eagerly, with explicit dimensions and natural image sizing on phones.
