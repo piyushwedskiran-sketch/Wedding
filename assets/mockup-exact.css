@@ -1,0 +1,229 @@
+/*
+  Final visual layer. The two selected visual compositions are intentionally
+  used as the canvas for the opening and PIN screens, so the live experience
+  keeps the exact architecture, colour, spacing, and typography approved by
+  the couple. Interactive controls are laid over their printed positions.
+*/
+
+:root {
+  --reference-width: 47.97svh;
+  --reference-left: calc(50% - (var(--reference-width) / 2));
+}
+
+/* Selected opening artwork: preserve the whole portrait on every screen. */
+.royal-opening {
+  display: block !important;
+  background:
+    linear-gradient(90deg, rgb(59 47 35 / .84), transparent 23%, transparent 77%, rgb(59 47 35 / .84)),
+    url('selected-opening-reference.png') center / auto 100% no-repeat,
+    #625342 !important;
+  color: transparent !important;
+}
+.royal-opening .royal-scene,
+.royal-opening .royal-shade,
+.royal-opening .royal-glow,
+.royal-opening .royal-intro,
+.royal-opening .petal-stream,
+.royal-opening::before,
+.royal-opening::after { display: none !important; }
+
+/* This invisible-but-accessible target sits exactly above the approved button. */
+.royal-message,
+.royal-message.is-visible {
+  position: absolute !important;
+  top: 66.5svh !important;
+  left: calc(50% - 12.7svh) !important;
+  z-index: 3 !important;
+  display: block !important;
+  width: 25.4svh !important;
+  height: 6.1svh !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: none !important;
+}
+.royal-message::before,
+.royal-message::after,
+.royal-message > :not(#continueJourney) { display: none !important; }
+.royal-message #continueJourney {
+  position: absolute !important;
+  inset: -1.1svh -1.4svh !important;
+  display: block !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  opacity: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline-offset: 5px !important;
+}
+.royal-message #continueJourney:focus-visible { opacity: 1 !important; outline: 2px solid #f5cf79 !important; }
+
+/* Selected PIN artwork. The form is real; only its visual frame is printed in the canvas. */
+.auth-screen {
+  display: block !important;
+  background:
+    linear-gradient(90deg, rgb(59 47 35 / .84), transparent 23%, transparent 77%, rgb(59 47 35 / .84)),
+    url('selected-pin-reference.png') center / auto 100% no-repeat,
+    #625342 !important;
+  color: transparent !important;
+}
+.auth-screen::before,
+.auth-screen::after,
+.auth-screen .auth-halo,
+.auth-screen #fireworks { display: none !important; }
+.auth-card,
+.auth-screen.login-enter .auth-card {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  color: transparent !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.auth-card::before,
+.auth-card::after,
+.auth-card > :not(#pinForm) { display: none !important; }
+.auth-card #pinForm {
+  position: absolute !important;
+  top: 53.1svh !important;
+  left: calc(50% - 18.9svh) !important;
+  display: block !important;
+  width: 37.8svh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.auth-card #pin {
+  display: block !important;
+  width: 100% !important;
+  height: 4.3svh !important;
+  margin: 0 !important;
+  padding: 0 2.8svh !important;
+  color: #fff9e8 !important;
+  -webkit-text-fill-color: #fff9e8 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font: 500 clamp(1rem, 2.25svh, 1.6rem) / 1 'DM Sans', sans-serif !important;
+  letter-spacing: .45em !important;
+  text-align: center !important;
+  text-indent: .45em !important;
+  outline: none !important;
+}
+.auth-card #pin::placeholder { color: transparent !important; -webkit-text-fill-color: transparent !important; }
+.auth-card #pin:focus { box-shadow: inset 0 -2px 0 #f5cf79 !important; }
+.auth-card #pinForm .gold-button {
+  display: block !important;
+  width: 100% !important;
+  height: 4.65svh !important;
+  margin: 3.05svh 0 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  opacity: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline-offset: 4px !important;
+}
+.auth-card #pinForm .gold-button:focus-visible { opacity: 1 !important; outline: 2px solid #4a2e50 !important; }
+.auth-card #authError {
+  position: absolute !important;
+  top: 12.5svh !important;
+  left: -2svh !important;
+  width: calc(100% + 4svh) !important;
+  margin: 0 !important;
+  color: #5a2133 !important;
+  -webkit-text-fill-color: #5a2133 !important;
+  font: 700 .82rem/1.4 'DM Sans', sans-serif !important;
+  text-align: center !important;
+  text-shadow: 0 1px 0 #fff8e9 !important;
+}
+
+/* Keep the real mute control available without fighting the picture composition. */
+.sound {
+  top: 3.5svh !important;
+  right: auto !important;
+  left: calc(50% + 13.2svh) !important;
+  z-index: 40 !important;
+  min-width: 7.2svh !important;
+  min-height: 5.5svh !important;
+  padding: .6svh 1.1svh !important;
+  color: #fffbed !important;
+  background: rgb(34 37 41 / .88) !important;
+  border-color: rgb(231 204 144 / .82) !important;
+  box-shadow: none !important;
+  font-size: clamp(.73rem, 1.7svh, 1rem) !important;
+}
+
+/* The existing live invitation remains data-driven, but shares the same lilac card language. */
+.invitation::after { filter: none !important; }
+.invitation .hero-content,
+.invitation .rsvp-form {
+  background:
+    radial-gradient(circle at 88% 82%, rgb(255 255 255 / .54) 0 1%, transparent 28%),
+    linear-gradient(135deg, rgb(66 45 88 / .94), rgb(115 96 130 / .9) 64%, rgb(211 201 207 / .86)) !important;
+}
+
+@media (min-width: 700px) {
+  .royal-opening,
+  .auth-screen {
+    background-size: auto 100%, auto 100%, auto 100% !important;
+  }
+}
+
+@media (max-width: 699px) {
+  :root { --reference-width: 100svw; }
+  .royal-opening,
+  .auth-screen {
+    background: url('selected-opening-reference.png') center / cover no-repeat !important;
+  }
+  .auth-screen { background-image: url('selected-pin-reference.png') !important; }
+  .sound { left: auto !important; right: 4.6vw !important; top: 3.5svh !important; }
+  .royal-message,
+  .royal-message.is-visible {
+    top: 66.5svh !important;
+    left: 23.5vw !important;
+    width: 53vw !important;
+    height: 6.1svh !important;
+  }
+  .auth-card #pinForm {
+    top: 53.1svh !important;
+    left: 10.4vw !important;
+    width: 79.2vw !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .royal-opening.opening-exit { animation: none !important; }
+}

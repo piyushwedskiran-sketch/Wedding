@@ -1,0 +1,134 @@
+/* A botanical gatefold invitation. Both sides share this entrance. */
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.door-entrance {
+  --door-ink: #493d32;
+  --door-gold: #897044;
+  position: relative;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  background: #eee7da;
+  color: var(--door-ink);
+  isolation: isolate;
+  overflow: hidden;
+}
+.door-surround { position: absolute; inset: 0; background: radial-gradient(ellipse at center, #fffaf1, #e5d9c6); }
+.invitation-doors { position: absolute; inset: 0; perspective: 1800px; perspective-origin: 50% 50%; }
+.door-leaf {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-image: url('ivory-botanical-paper.png');
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 2.15s cubic-bezier(.42, 0, .16, 1) .28s, filter 2.15s ease .28s;
+  will-change: transform;
+}
+.door-left { left: 0; background-position: left center; transform-origin: left center; box-shadow: inset -1px 0 #9b805b55, 2px 0 7px #6851351a; }
+.door-right { right: 0; background-position: right center; transform-origin: right center; box-shadow: inset 1px 0 #fffcf0, -1px 0 4px #68513525; }
+.door-leaf::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 80%, #7c614b0a); pointer-events: none; }
+.door-right::before { transform: scaleX(-1); }
+.door-border { position: absolute; inset: 22px; border-block: 1px solid #a58a5666; }
+.door-left .door-border { right: 0; border-left: 1px solid #a58a5666; border-radius: 2px 0 0 2px; }
+.door-right .door-border { left: 0; border-right: 1px solid #a58a5666; border-radius: 0 2px 2px 0; }
+.door-border::after { content: ''; position: absolute; inset: 6px; border-block: 1px solid #a58a5633; }
+.door-left .door-border::after { right: 0; border-left: 1px solid #a58a5633; }
+.door-right .door-border::after { left: 0; border-right: 1px solid #a58a5633; }
+.entrance-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; width: 100%; min-height: 100svh; padding: clamp(36px, 6vh, 68px) 26px 34px; text-align: center; opacity: 1; }
+.entrance-content.is-visible { opacity: 1; }
+.entrance-heading { margin-bottom: auto; }
+.entrance-flourish { display: inline-block; margin-bottom: 16px; color: #a68a53; font: 28px/1 Georgia, serif; }
+.entrance-eyebrow { margin: 0; color: #786447; font: 500 10px/1.5 var(--sans); letter-spacing: .29em; text-transform: uppercase; }
+.entrance-intro { margin: 12px 0 0; color: #746855; font: italic 19px/1.4 var(--editorial); }
+.entrance-names { display: grid; justify-items: center; margin: 32px 0 30px; color: #49392d; font: 400 clamp(64px, 8vw, 100px)/.97 var(--display); letter-spacing: -.045em; text-shadow: 0 1px #fffdf5; }
+.entrance-names em { margin: 6px 0 8px; color: #937542; font: 400 32px/.9 var(--script); letter-spacing: 0; }
+.entrance-action { margin: 0 0 auto; }
+.seal-button { display: inline-flex; flex-direction: column; align-items: center; gap: 22px; min-width: 190px; padding: 8px 18px; border: 0; border-radius: 4px; background: transparent; color: #6b5739; -webkit-tap-highlight-color: transparent; }
+.wax-seal { position: relative; display: grid; place-content: center; width: 106px; height: 106px; border: 1px solid #ae813b; border-radius: 49% 51% 48% 52% / 51% 48% 52% 49%; color: #80602e; background: radial-gradient(ellipse at 30% 18%, #fff0bd 0%, #eac887 25%, #c5964c 67%, #edcf91 96%); box-shadow: 0 2px 0 #9c7338, 0 5px 0 -1px #ba9456, 0 11px 18px #6c4e3b38, inset 0 0 0 4px #eacb91, inset 0 0 0 6px #b68b4c, inset 0 0 0 8px #efce8c; transition: transform .35s ease, box-shadow .35s ease; }
+.wax-seal::before { content: ''; position: absolute; inset: 13px; border: 1px solid #9f773b80; border-radius: 50%; box-shadow: 0 1px #fff0bb80, inset 0 1px #fff0bb80; }
+.wax-seal::after { content: ''; position: absolute; inset: 9px; border: 1px dashed #8e6a3445; border-radius: 50%; }
+.seal-monogram { position: relative; left: -2px; margin-top: 7px; color: #8d6938; font: 42px/1 var(--script); letter-spacing: -.08em; text-shadow: 0 1px 0 #ffe6a5, 0 -1px 0 #72552a50; }
+.seal-sprig { margin-top: 3px; color: #997541; font: 19px/1 Georgia, serif; text-shadow: 0 1px #ffe6a5; }
+.seal-caption { font: 600 10px/1.5 var(--sans); letter-spacing: .24em; text-transform: uppercase; }
+.seal-caption > span { margin-left: 8px; font-size: 15px; vertical-align: -1px; }
+.seal-button:hover .wax-seal { transform: translateY(-4px) rotate(-5deg); box-shadow: 0 2px 0 #9c7338, 0 5px 0 -1px #ba9456, 0 17px 23px #6c4e3b42, inset 0 0 0 4px #eacb91, inset 0 0 0 6px #b68b4c, inset 0 0 0 8px #efce8c; }
+.seal-button:active .wax-seal { transform: translateY(1px) scale(.97); }
+.seal-button:focus-visible { outline: 2px solid #8d6b38; outline-offset: 7px; }
+.seal-button:disabled { opacity: 1; }
+.entrance-hint { margin: 5px 0 0; color: #7d705e; font: italic 15px/1.5 var(--editorial); }
+.entrance-footer { display: flex; align-items: center; justify-content: center; gap: 20px; width: min(440px, 90%); margin-top: 37px; }
+.entrance-footer p { flex-shrink: 0; margin: 0; color: #746044; font: 500 10px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; }
+.entrance-footer p span { margin-inline: 5px; }
+.entrance-line { height: 1px; width: 48px; background: #ad95605c; }
+/* Keep the login underneath the moving doors for a continuous reveal. */
+.door-entrance.opening-exit { position: fixed; inset: 0; min-height: 100%; background: transparent; pointer-events: none; }
+.opening-exit .door-surround { opacity: 0; transition: opacity .4s ease .15s; }
+.opening-exit .entrance-content { opacity: 0; transform: translateY(-8px); transition: opacity .3s ease, transform .4s ease; }
+.opening-exit .door-left { transform: rotateY(-105deg); filter: brightness(.8); }
+.opening-exit .door-right { transform: rotateY(105deg); filter: brightness(.8); }
+.auth-screen .login-card { animation: none; }
+.auth-screen.behind-doors .login-card { animation: door-card-arrival 2.5s both ease; }
+@keyframes door-card-arrival { 0%, 10% { opacity: .25; transform: scale(.94); } 100% { opacity: 1; transform: none; } }
+/* A calmer, finely framed interior to accompany the paper cover. */
+.login-card { border-color: #d3b5779c; box-shadow: 0 28px 85px #0008, inset 0 0 0 7px #cbaa5c09; }
+.login-card::before { animation: none; box-shadow: none; }
+.auth-screen .lantern { opacity: .65; }
+.action-button:focus-visible, .text-button:focus-visible, .event-directions:focus-visible { outline: 2px solid #fff0b9; outline-offset: 5px; }
+.event-facts { margin-bottom: 22px; }
+@media (min-width: 1000px) {
+  .door-entrance { --cover-width: min(960px, calc(100vw - 96px)); }
+  .invitation-doors { width: var(--cover-width); left: 50%; right: auto; transform: translateX(-50%); box-shadow: 0 0 60px #8067431a; }
+  .entrance-content { width: var(--cover-width); }
+  .door-border { inset-block: 26px; }
+}
+@media (max-width: 640px) {
+  .entrance-content { padding: max(38px, env(safe-area-inset-top)) 22px max(31px, env(safe-area-inset-bottom)); }
+  .door-border { inset: 12px; }
+  .door-border::after { inset: 5px; }
+  .entrance-flourish { margin-bottom: 15px; font-size: 25px; }
+  .entrance-eyebrow { font-size: 8px; letter-spacing: .23em; }
+  .entrance-intro { margin-top: 9px; font-size: 17px; }
+  .entrance-names { margin: 26px 0 28px; font-size: clamp(59px, 17vw, 80px); }
+  .entrance-names em { font-size: 30px; margin-block: 8px; }
+  .wax-seal { width: 98px; height: 98px; }
+  .seal-monogram { font-size: 38px; }
+  .seal-button { gap: 21px; }
+  .seal-caption { font-size: 9px; letter-spacing: .2em; }
+  .entrance-hint { font-size: 13px; }
+  .entrance-footer { gap: 12px; margin-top: 30px; }
+  .entrance-footer p { font-size: 9px; letter-spacing: .14em; }
+  .entrance-line { width: 25px; }
+}
+@media (max-height: 700px) {
+  .entrance-content { padding-top: 28px; padding-bottom: 26px; }
+  .entrance-flourish { margin-bottom: 8px; font-size: 21px; }
+  .entrance-intro { margin-top: 6px; }
+  .entrance-names { margin: 20px 0 17px; font-size: 61px; }
+  .entrance-names em { font-size: 27px; }
+  .wax-seal { width: 83px; height: 83px; }
+  .seal-monogram { font-size: 32px; }
+  .seal-sprig { font-size: 16px; }
+  .seal-button { gap: 15px; }
+  .entrance-footer { margin-top: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .door-leaf { transition: none; }
+  .entrance-content { opacity: 1; }
+  .opening-exit .entrance-content { opacity: 0; }
+  .seal-button:hover .wax-seal { transform: none; }
+}
+/* The heading receives focus for screen readers, but is not an input control. */
+.login-card h1[tabindex="-1"]:focus { outline: none; }
+@media (max-width: 640px) {
+  .sound-button { justify-content: center; width: 42px; min-height: 42px; padding: 10px; }
+  .sound-button i { display: none; }
+  .sound-button span { font-size: 20px; }
+}
+@media (min-width: 641px) {
+  .auth-screen .screen-shell { padding-top: 116px; padding-bottom: 45px; }
+  .auth-screen .login-card { padding: 34px 48px; }
+}
