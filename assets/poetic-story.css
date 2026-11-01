@@ -1,0 +1,20 @@
+/* Story-only line drawings: meaningful silhouettes with the words held inside. */
+.story-timeline.poetic-timeline { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 26px; }
+.story-timeline .poetic-chapter { display:grid;position:relative;isolation:isolate;min-width:0;min-height:410px;padding:0;grid-template-columns:1fr;background:none;border:0;box-shadow:none; }
+.story-linework { position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;fill:none;stroke:#d9bd83;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round;opacity:.78; }
+.story-timeline li > .poetic-copy { display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:126px 62px 57px;margin:0;background:none!important;border:0;box-shadow:none;transform:none; }
+.story-timeline li > .poetic-copy::after { display:none; }
+.poetic-copy time { align-self:center;margin:0 0 17px;padding:0;border:0;background:none;color:#ddc48f;font:500 11px/1.5 var(--sans);letter-spacing:.15em;text-transform:uppercase; }
+.poetic-copy h3 { margin:0 0 17px;color:#f5e6c5;font:500 italic clamp(25px,2.3vw,32px)/1.15 var(--editorial);text-wrap:balance; }
+.poetic-copy p { margin:0;color:#e0e4d4;font:400 17px/1.65 var(--editorial);text-wrap:pretty; }
+.story-flourish { display:block;margin-top:17px;color:#dbc48f;font-size:16px; }
+.footer-together { display:block;width:min(300px,78vw);height:auto;max-height:450px;object-fit:contain;margin:0 auto 32px;border:1px solid #d9bb7850;border-radius:150px 150px 12px 12px;box-shadow:0 16px 46px #1a0d2033; }
+@media(max-width:700px) {
+ .story-timeline.poetic-timeline { grid-template-columns:1fr;gap:24px; }
+ .story-timeline .poetic-chapter { min-height:410px; }
+ .story-timeline li > .poetic-copy { padding:121px 43px 56px; }
+ .poetic-copy h3 { font-size:28px; }
+ .poetic-copy p { font-size:17px;line-height:1.6; }
+ .footer-together { width:min(260px,78vw);max-height:390px; }
+}
+@media(min-width:701px) and (max-width:900px) { .story-timeline li > .poetic-copy { padding-inline:42px; } .story-timeline .poetic-chapter { min-height:460px; } }
