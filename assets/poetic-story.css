@@ -18,3 +18,14 @@
  .footer-together { width:min(260px,78vw);max-height:390px; }
 }
 @media(min-width:701px) and (max-width:900px) { .story-timeline li > .poetic-copy { padding-inline:42px; } .story-timeline .poetic-chapter { min-height:460px; } }
+/* Reserve a proportional safe area inside every drawing, including inner scroll edges.
+   Vertical percentages use the frame's own grid height rather than its width. */
+.story-timeline .poetic-chapter { grid-template-rows: minmax(140px, 34fr) minmax(min-content, 44fr) minmax(90px, 22fr); }
+.story-timeline li.poetic-chapter > .poetic-copy { grid-row:2; width:64%; min-width:0; margin-inline:auto; padding:0; box-sizing:border-box; }
+.story-timeline .poetic-copy > * { max-width:100%; overflow-wrap:break-word; }
+@media(max-width:700px) {
+ .story-timeline .poetic-chapter { min-height:460px; grid-template-rows:minmax(145px,34fr) minmax(min-content,44fr) minmax(95px,22fr); }
+ .story-timeline li.poetic-chapter > .poetic-copy { width:64%; padding:0; }
+ .poetic-copy h3 { font-size:26px; }
+ .poetic-copy p { font-size:16px; }
+}
